@@ -13,15 +13,14 @@
     <link rel="stylesheet" href="/css/style.css" />
     <!-- end CSS style -->
 
-    <!-- JS haed -->
+    <!-- JS head -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      // Konfigurasi Tailwind class 'dark'
       tailwind.config = {
         darkMode: "class",
       };
     </script>
-    <!-- end JS haed -->
+    <!-- end JS head -->
   </head>
   <body class="overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
     <!-- Page loader area -->
@@ -81,15 +80,29 @@
         </div>
       </div>
 
-      <div class="bg-zinc-900 border-t border-zinc-800">
+      <div
+        class="bg-zinc-900 border-t border-zinc-800"
+        x-data="{
+             activeFilter: 'Terkini',
+             categories: ['Terkini', 'Programming', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Tugas'],
+             setFilter(cat) {
+               this.activeFilter = cat;
+               $dispatch('filter-changed', cat);
+             }
+           }"
+      >
         <div class="max-w-7xl mx-auto px-4">
           <div class="flex items-center gap-2 py-2 overflow-x-auto scrollbar-hide whitespace-nowrap">
-            <a href="#" class="px-3 py-1 text-xs rounded-full bg-emerald-500 text-zinc-950 font-bold">Terkini</a>
-            <a href="#" class="px-3 py-1 text-xs rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">Programming</a>
-            <a href="#" class="px-3 py-1 text-xs rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">Laravel</a>
-            <a href="#" class="px-3 py-1 text-xs rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">JavaScript</a>
-            <a href="#" class="px-3 py-1 text-xs rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">HTML & CSS</a>
-            <a href="#" class="px-3 py-1 text-xs rounded-full text-zinc-400 hover:text-white hover:bg-zinc-800 transition-all">Network Security</a>
+            <template x-for="cat in categories" :key="cat">
+              <button
+                @click="setFilter(cat)"
+                :class="activeFilter === cat
+                  ? 'bg-emerald-500 text-zinc-950 font-bold'
+                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800'"
+                class="px-3 py-1 text-xs rounded-full transition-all"
+                x-text="cat"
+              ></button>
+            </template>
           </div>
         </div>
       </div>
@@ -104,40 +117,284 @@
     <!-- end Navbar area -->
 
     <!-- Content area -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main x-data="{ activeFilter: 'Terkini' }" @filter-changed.window="activeFilter = $event.detail" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div class="lg:col-span-3 space-y-10">
+          <!-- ===== SECTION: TERKINI ===== -->
           <section>
-            <h2 class="section-title text-emerald-500 text-xl font-bold mb-6">Terkini</h2>
-            <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
-              <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
-                <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
-                  <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Programming</span>
-                  <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
-                  <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
-                </div>
-              </div>
-            </a>
+            <h2 class="section-title text-emerald-500 text-xl font-bold mb-6" x-text="activeFilter === 'Terkini' ? 'Terkini' : activeFilter"></h2>
 
+            <!-- Featured card — kategori: Terkini -->
+            <div
+              x-show="activeFilter === 'Terkini'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Programming</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Featured card — kategori: Progamming -->
+            <div
+              x-show="activeFilter === 'Programming'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Programming</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Featured card — kategori: JavaScript -->
+            <div
+              x-show="activeFilter === 'JavaScript'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">JavaScript</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Featured card — kategori: Laravel -->
+            <div
+              x-show="activeFilter === 'Laravel'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Laravel</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Featured card — kategori: HTML & CSS -->
+            <div
+              x-show="activeFilter === 'HTML & CSS'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">HTML & CSS</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Featured card — kategori: Network Security -->
+            <div
+              x-show="activeFilter === 'Network Security'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Network Security</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Featured card — kategori: Tugas -->
+            <div
+              x-show="activeFilter === 'Tugas'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="https://picsum.photos/seed/tech1/800/400" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Tugas</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Membangun Aplikasi Modern dengan Stack Terbaru 2026</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 jam yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Grid card kecil — 2 kolom -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3">
+              <!--
+                Card: Tailwind CSS — kategori: HTML & CSS
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'HTML & CSS'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
+              >
                 <img src="https://picsum.photos/seed/css/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
                 <span class="tag-pill text-emerald-500 text-[10px]">CSS Framework</span>
                 <h4 class="font-bold text-sm mt-1">Panduan Tailwind CSS v4 untuk Pemula</h4>
               </div>
-              <div class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3">
+
+              <!--
+                Card: JavaScript ES2025 — kategori: JavaScript
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'JavaScript'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
+              >
                 <img src="https://picsum.photos/seed/js/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
                 <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
                 <h4 class="font-bold text-sm mt-1">Fitur Baru JavaScript ES2025 yang Harus Diketahui</h4>
               </div>
             </div>
+
+            <!-- Grid card kecil — 3 kolom -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <!--
+                Card: Tailwind CSS — kategori: HTML & CSS
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'HTML & CSS'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
+              >
+                <img src="https://picsum.photos/seed/css/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
+                <span class="tag-pill text-emerald-500 text-[10px]">CSS Framework</span>
+                <h4 class="font-bold text-sm mt-1">Panduan Tailwind CSS v4 untuk Pemula</h4>
+              </div>
+
+              <!--
+                Card: JavaScript ES2025 — kategori: JavaScript
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'JavaScript'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
+              >
+                <img src="https://picsum.photos/seed/js/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
+                <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
+                <h4 class="font-bold text-sm mt-1">Fitur Baru JavaScript ES2025 yang Harus Diketahui</h4>
+              </div>
+
+              <!--
+                Card: JavaScript ES2025 — kategori: JavaScript
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'JavaScript'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
+              >
+                <img src="https://picsum.photos/seed/js/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
+                <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
+                <h4 class="font-bold text-sm mt-1">Fitur Baru JavaScript ES2025 yang Harus Diketahui</h4>
+              </div>
+            </div>
+
+            <!-- Pesan kosong -->
+            <div x-show="activeFilter === 'Laravel' || activeFilter === 'Network Security' || activeFilter === 'Tugas'" x-transition class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">Tidak ada artikel di kategori ini untuk section Terkini.</div>
           </section>
 
+          <!-- ===== SECTION: BERITA LAINNYA ===== -->
           <section>
             <h2 class="section-title text-emerald-500 text-xl font-bold mb-6">Berita Lainnya</h2>
             <div class="space-y-4">
-              <div class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer">
+              <!--
+                Card list: Node.js — kategori: Programming
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'Programming'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
+              >
                 <img src="https://picsum.photos/seed/node/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <span class="tag-pill text-emerald-500 text-[10px]">Backend</span>
@@ -145,22 +402,107 @@
                   <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Cara mudah meningkatkan throughput server tanpa upgrade hardware berlebih...</p>
                 </div>
               </div>
+
+              <!--
+                Card list: Laravel Eloquent — kategori: Laravel
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'Laravel'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
+              >
+                <img src="https://picsum.photos/seed/laravel/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <span class="tag-pill text-emerald-500 text-[10px]">Laravel</span>
+                  <h3 class="font-bold text-base leading-snug">Optimasi Query Eloquent agar Lebih Cepat</h3>
+                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Teknik eager loading, chunking, dan caching query di Laravel untuk performa terbaik...</p>
+                </div>
+              </div>
+
+              <!--
+                Card list: Async Await — kategori: JavaScript
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'JavaScript'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
+              >
+                <img src="https://picsum.photos/seed/async/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
+                  <h3 class="font-bold text-base leading-snug">Async/Await vs Promise: Mana yang Lebih Baik?</h3>
+                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Perbandingan mendalam cara kerja async di JavaScript modern dan kapan menggunakan masing-masing...</p>
+                </div>
+              </div>
+
+              <!--
+                Card list: CSS Animasi — kategori: HTML & CSS
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'HTML & CSS'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
+              >
+                <img src="https://picsum.photos/seed/cssanim/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <span class="tag-pill text-emerald-500 text-[10px]">HTML & CSS</span>
+                  <h3 class="font-bold text-base leading-snug">Animasi CSS Modern yang Bikin Website Makin Hidup</h3>
+                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Dari keyframes sampai CSS custom properties, semua cara bikin animasi yang smooth...</p>
+                </div>
+              </div>
+
+              <!--
+                Card list: Network Security — kategori: Network Security
+              -->
+              <div
+                x-show="activeFilter === 'Terkini' || activeFilter === 'Network Security'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
+              >
+                <img src="https://picsum.photos/seed/netsec/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <span class="tag-pill text-emerald-500 text-[10px]">Network Security</span>
+                  <h3 class="font-bold text-base leading-snug">Mengenal OWASP Top 10 Kerentanan Web 2025</h3>
+                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Panduan lengkap memahami celah keamanan web paling umum dan cara mengatasinya...</p>
+                </div>
+              </div>
             </div>
           </section>
         </div>
 
+        <!-- ===== SIDEBAR ===== -->
         <div class="lg:col-span-1 space-y-8">
           <section class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5">
             <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Ikuti Kami</h2>
             <div class="flex flex-col gap-2">
               <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all">
-                <span class="text-zinc-900 dark:text-white text-sm font-semibold">Instagram</span>
+                <span class="text-orange-500 text-sm font-semibold">Instagram</span>
               </a>
               <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all">
-                <span class="text-zinc-900 dark:text-white text-sm font-semibold">Twitter / X</span>
+                <span class="text-sky-500 text-sm font-semibold">Twitter / X</span>
               </a>
               <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all">
-                <span class="text-zinc-900 dark:text-white text-sm font-semibold">YouTube Channel</span>
+                <span class="text-red-500 text-sm font-semibold">YouTube Channel</span>
               </a>
             </div>
           </section>
@@ -176,7 +518,7 @@
                 </div>
               </div>
               <div class="card-hover flex gap-3 cursor-pointer group">
-                <img src="https://picsum.photos/seed/l1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+                <img src="https://picsum.photos/seed/l2/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Startup Teknologi Jakarta Raih Pendanaan Baru</h3>
                   <p class="text-zinc-400 text-xs mt-1">2 jam lalu</p>
@@ -239,9 +581,6 @@
     <!-- end Content area -->
 
     <!-- Footer area -->
-    <!-- <footer class="border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
-      <p>&copy; 2026 monXinfo - All Rights Reserved</p>
-    </footer> -->
     <footer class="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 mt-20">
       <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
@@ -260,13 +599,6 @@
                 <li><a href="#" class="hover:underline hover:text-emerald-500 transition-colors">Discord</a></li>
               </ul>
             </div>
-            <!-- <div>
-              <h2 class="mb-6 text-sm font-semibold text-zinc-900 uppercase dark:text-white">Legal</h2>
-              <ul class="text-zinc-500 dark:text-zinc-400 font-medium">
-                <li class="mb-4"><a href="privacy.html" class="hover:underline hover:text-emerald-500 transition-colors">Privacy Policy</a></li>
-                <li><a href="terms.html" class="hover:underline hover:text-emerald-500 transition-colors">Terms &amp; Conditions</a></li>
-              </ul>
-            </div> -->
           </div>
         </div>
 
