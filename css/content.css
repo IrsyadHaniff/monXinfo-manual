@@ -1,0 +1,40 @@
+.font-sora {
+  font-family: "Sora", sans-serif;
+}
+.prose p {
+  font-size: 15px;
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+}
+.prose h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+}
+.prose h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+.prose ul {
+  list-style: disc;
+  margin: 0.5rem 0 1.25rem 1.5rem;
+}
+.prose ol {
+  list-style: decimal;
+  margin: 0.5rem 0 1.25rem 1.5rem;
+}
+.prose li {
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 0.4rem;
+}
+.prose ul li::marker {
+  color: #10b981;
+}
+.prose ol li::marker {
+  color: #10b981;
+  font-weight: 700;
+}
+
+

@@ -3,14 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="monXinfo" />
-    <meta property="og:description" content="info seputar putar" />
-    <meta property="og:image" content="https://irsyadhaniff.github.io/monXinfo-manual/images/previewpage041026.png" />
-    <title>monXinfo - Portal Informasi</title>
+    <title>monXinfo - Artikel</title>
     <!-- CSS style -->
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/content.css">
     <!-- end CSS style -->
 
     <!-- JS head -->
@@ -22,8 +19,9 @@
     </script>
     <!-- end JS head -->
   </head>
-  <body class="overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
-    <!-- Page loader area -->
+  <body class="overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sora">
+
+    <!-- Page loader -->
     <div id="page-loader">
       <svg aria-hidden="true" class="w-10 h-10 text-zinc-300 dark:text-zinc-700 animate-spin fill-emerald-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -36,32 +34,27 @@
         />
       </svg>
     </div>
-    <!-- end Page loader area -->
+    <!-- end Page loader -->
 
-    <!-- Navbar area -->
+    <!-- Navbar -->
     <nav x-data="{ open: false }" class="w-full font-sora bg-zinc-950 border-b border-zinc-800 sticky top-0 z-40">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <div class="flex items-center space-x-4 w-1/4">
-            <a href="/index.html" class="text-emerald-400 text-xl font-black tracking-tight"> mon<span class="text-white">X</span>info </a>
+            <a href="/index.html" class="text-emerald-400 text-xl font-black tracking-tight">mon<span class="text-white">X</span>info</a>
             <button id="theme-toggle" class="text-zinc-400 hover:text-white transition-colors">
               <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 5V3m0 18v-2M7.05 7.05 5.636 5.636m12.728 12.728L16.95 16.95M5 12H3m18 0h-2M7.05 16.95l-1.414 1.414M18.364 5.636 16.95 7.05M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
-                />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5V3m0 18v-2M7.05 7.05 5.636 5.636m12.728 12.728L16.95 16.95M5 12H3m18 0h-2M7.05 16.95l-1.414 1.414M18.364 5.636 16.95 7.05M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
               </svg>
               <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 0 1-.5-17.986V3c-.354.966-.5 1.911-.5 3a9 9 0 0 0 9 9c.239 0 .254.018.488 0A9.004 9.004 0 0 1 12 21Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 0 1-.5-17.986V3c-.354.966-.5 1.911-.5 3a9 9 0 0 0 9 9c.239 0 .254.018.488 0A9.004 9.004 0 0 1 12 21Z"/>
               </svg>
             </button>
           </div>
 
           <div class="hidden md:flex flex-1 justify-center">
             <ul class="flex items-center gap-2">
-              <li><a href="index.html" class="px-4 py-2 text-sm text-white bg-zinc-800 rounded-md">Home</a></li>
+              <li><a href="index.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Home</a></li>
               <li><a href="about.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">About</a></li>
               <li><a href="disclaimer.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Disclaimer</a></li>
               <li><a href="contact.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Contact</a></li>
@@ -74,47 +67,170 @@
               <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <button class="hidden md:block text-zinc-400 hover:text-white">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             </button>
           </div>
         </div>
       </div>
 
-      <div
-          class="bg-zinc-900 border-t border-zinc-800"
-          x-data="{
-            categories: ['Terkini', 'Programming', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Tugas'],
-          }"
-        >
-          <div class="max-w-7xl mx-auto px-4">
-            <div class="flex items-center gap-2 py-2 overflow-x-auto scrollbar-hide whitespace-nowrap">
-              <template x-for="cat in categories" :key="cat">
-                
-                  <a :href="`../../../index.html?category=${encodeURIComponent(cat)}`" class="px-3 py-1 text-xs rounded-full transition-all text-zinc-400 hover:text-white hover:bg-zinc-800"
-                  x-text="cat"></a>
-              </template>
-            </div>  
+      <!-- Category bar -->
+      <div class="bg-zinc-900 border-t border-zinc-800" x-data="{ categories: ['Terkini', 'Artificial Intelligence', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Tugas'] }">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex items-center gap-2 py-2 overflow-x-auto scrollbar-hide whitespace-nowrap">
+            <template x-for="cat in categories" :key="cat">
+              <a :href="`../../../index.html?category=${encodeURIComponent(cat)}`"
+                 class="px-3 py-1 text-xs rounded-full transition-all text-zinc-400 hover:text-white hover:bg-zinc-800"
+                 x-text="cat"></a>
+            </template>
           </div>
         </div>
+      </div>
 
+      <!-- Mobile menu -->
       <div x-show="open" class="md:hidden bg-zinc-950 border-t border-zinc-800 px-4 py-4 space-y-1">
-        <a href="index.html" class="block px-4 py-2 text-white bg-zinc-800 rounded-md">Home</a>
+        <a href="index.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Home</a>
         <a href="about.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">About</a>
         <a href="disclaimer.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Disclaimer</a>
         <a href="contact.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Contact</a>
       </div>
     </nav>
-    <!-- end Navbar area -->
+    <!-- end Navbar -->
+
+    <!-- Breadcrumb -->
+    <div class="bg-zinc-900 border-b border-zinc-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex items-center gap-1.5 py-3 text-xs text-zinc-500 overflow-x-auto scrollbar-hide whitespace-nowrap" aria-label="Breadcrumb">
+          <a href="/index.html" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+            Home
+          </a>
+          <svg class="w-3 h-3 text-zinc-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          <a href="/index.html?category=Artificial Intelligence" class="hover:text-emerald-400 transition-colors">Artificial Intelligence</a>
+          <svg class="w-3 h-3 text-zinc-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          <span class="text-zinc-300 truncate max-w-xs">Revolusi AI: Apa yang Kamu Ketahui tentang Kecerdasan Buatan di Era Modern?</span>
+        </nav>
+      </div>
+    </div>
+    <!-- end Breadcrumb -->
 
     <!-- Content area -->
-    <main x-data="{ activeFilter: 'Terkini' }" @filter-changed.window="activeFilter = $event.detail" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        <div class="lg:col-span-3 space-y-10">
-          <h1>Revolusi ai apa yang kamu ketahui?</h1>
-        </div>
 
-        <!-- ===== SIDEBAR ===== -->
+        <!-- ARTICLE -->
+        <div class="lg:col-span-3 space-y-0">
+          <article>
+
+            <!-- Meta -->
+            <div class="flex items-center gap-3 flex-wrap mb-5">
+              <span class="bg-emerald-950 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Artificial Intelligence</span>
+              <span class="text-zinc-500 text-xs">Sabtu, 11 April 2026</span>
+              <span class="text-zinc-700 text-xs">·</span>
+              <span class="text-zinc-500 text-xs">1 hari lalu</span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-2xl sm:text-3xl font-black leading-tight text-zinc-900 dark:text-zinc-100 mb-3">
+              Revolusi AI: Apa yang Kamu Ketahui tentang Kecerdasan Buatan di Era Modern?
+            </h1>
+            <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5">
+              Dari model bahasa besar hingga AI generatif, kecerdasan buatan kini telah mengubah hampir setiap aspek kehidupan manusia. Tapi seberapa jauh kita memahaminya?
+            </p>
+
+            <!-- Author -->
+            <div class="flex items-center gap-3 py-4 border-t border-b border-zinc-200 dark:border-zinc-800 mb-6">
+              <div class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-400 text-xs font-bold flex-shrink-0">IR</div>
+              <div>
+                <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Irsyad Haniff</p>
+                <p class="text-xs text-zinc-400">Editor Teknologi · monXinfo</p>
+              </div>
+              <!-- <button class="ml-auto text-xs border border-zinc-300 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 px-3 py-1.5 rounded-md hover:border-emerald-500 hover:text-emerald-500 transition-all">
+                Bagikan
+              </button> -->
+            </div>
+
+            <!-- Hero Image -->
+            <img src="https://picsum.photos/seed/ai-hero/900/400" alt="Ilustrasi revolusi AI" class="w-full h-72 sm:h-96 object-cover rounded-xl mb-2" />
+            <p class="text-zinc-400 text-xs text-center italic mb-8">Ilustrasi: Perkembangan AI yang semakin pesat di berbagai sektor industri global. (Sumber: Unsplash)</p>
+
+            <!-- Body -->
+            <div class="prose text-zinc-700 dark:text-zinc-300">
+
+              <p>Kecerdasan buatan atau <em>Artificial Intelligence</em> (AI) bukan lagi sekadar konsep fiksi ilmiah. Dalam beberapa tahun terakhir, AI telah bertransformasi menjadi teknologi yang benar-benar nyata, hadir di smartphone kita, di mesin pencari, bahkan di alat bantu menulis sehari-hari.</p>
+
+              <p>Tapi apa sebenarnya yang dimaksud dengan "revolusi AI"? Dan bagaimana perkembangannya memengaruhi kehidupan kita — terutama para developer dan pelajar teknologi di Indonesia?</p>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Apa Itu AI dan Mengapa Ini Penting?</h2>
+              <p>Secara sederhana, AI adalah kemampuan mesin untuk meniru kecerdasan manusia — mulai dari memahami bahasa, mengenali gambar, hingga membuat keputusan. Yang membuat dekade ini berbeda adalah skala dan kecepatannya.</p>
+
+              <!-- Blockquote -->
+              <blockquote class="border-l-4 border-emerald-500 bg-zinc-100 dark:bg-zinc-900 rounded-r-lg px-5 py-4 my-6">
+                <p class="italic text-zinc-500 dark:text-zinc-400 text-base leading-relaxed mb-2">"Kecerdasan buatan adalah listrik baru. Sama seperti listrik mengubah hampir semua industri 100 tahun lalu, AI pun akan melakukan hal yang sama sekarang."</p>
+                <cite class="text-xs text-zinc-400 not-italic">— Andrew Ng, AI Researcher & Co-founder Coursera</cite>
+              </blockquote>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Perkembangan Utama yang Perlu Kamu Tahu</h2>
+              <p>Berikut beberapa tonggak penting dalam revolusi AI yang sedang berlangsung:</p>
+
+              <!-- Unordered list -->
+              <ul>
+                <li><strong>Large Language Models (LLM)</strong> seperti GPT dan Claude mampu memahami dan menghasilkan teks yang hampir tidak bisa dibedakan dari tulisan manusia.</li>
+                <li><strong>AI Generatif</strong> kini bisa menciptakan gambar, video, musik, bahkan kode program hanya dari deskripsi teks sederhana.</li>
+                <li><strong>AI di edge device</strong> — model kecil yang bisa berjalan langsung di smartphone tanpa perlu koneksi internet.</li>
+                <li><strong>Agentic AI</strong> memungkinkan sistem AI bekerja secara mandiri untuk menyelesaikan tugas-tugas kompleks multi-langkah.</li>
+                <li><strong>Multimodal AI</strong> yang bisa memproses teks, gambar, audio, dan video sekaligus dalam satu model.</li>
+              </ul>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Dampak bagi Developer Indonesia</h2>
+              <p>Bagi komunitas developer lokal, kebangkitan AI membuka peluang sekaligus tantangan baru. Di satu sisi, alat seperti GitHub Copilot dan AI chat assistant mempercepat produktivitas coding secara signifikan.</p>
+
+              <!-- Info box -->
+              <div class="bg-emerald-950 border border-emerald-900 rounded-xl px-5 py-4 my-6">
+                <p class="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-1">💡 Tahukah kamu?</p>
+                <p class="text-emerald-300 text-sm leading-relaxed">Survei Stack Overflow 2025 menemukan bahwa lebih dari 76% developer kini menggunakan tools berbasis AI dalam workflow coding mereka sehari-hari.</p>
+              </div>
+
+              <p>Di sisi lain, muncul pertanyaan penting: apakah pekerjaan tertentu akan tergantikan? Para ahli umumnya sepakat bahwa AI lebih cenderung mengubah sifat pekerjaan daripada menghilangkannya sepenuhnya — setidaknya dalam jangka menengah.</p>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Apa yang Harus Dipelajari Selanjutnya?</h2>
+              <p>Jika kamu ingin memulai atau memperdalam pemahaman tentang AI, berikut urutan topik yang direkomendasikan:</p>
+
+              <!-- Ordered list -->
+              <ol>
+                <li>Dasar-dasar Python dan matematika (aljabar linear, statistik)</li>
+                <li>Machine Learning dengan framework seperti scikit-learn</li>
+                <li>Deep Learning menggunakan PyTorch atau TensorFlow</li>
+                <li>Natural Language Processing dan Transformer architecture</li>
+                <li>Prompt engineering dan penggunaan LLM API secara praktis</li>
+              </ol>
+
+              <hr class="border-zinc-200 dark:border-zinc-800 my-8" />
+
+              <p>Revolusi AI bukan sesuatu yang perlu ditakuti, tapi dipahami dan dikuasai. Komunitas developer Indonesia punya potensi besar untuk tidak hanya menjadi konsumen teknologi ini, tapi juga berkontribusi aktif dalam pengembangannya.</p>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mt-8">
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all">#ArtificialIntelligence</span>
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all">#MachineLearning</span>
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all">#Developer</span>
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all">#Teknologi</span>
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all">#Indonesia</span>
+            </div>
+
+          </article>
+        </div>
+        <!-- end ARTICLE -->
+
+        <!-- SIDEBAR -->
         <div class="lg:col-span-1 space-y-8">
+
           <section class="bg-white dark:bg-zinc-900 border border-zinc-400 dark:border-zinc-800 rounded-xl p-5">
             <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Ikuti Kami</h2>
             <div class="flex flex-col gap-2">
@@ -131,16 +247,16 @@
           </section>
 
           <section>
-            <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Lokal</h2>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Lokal</h2>
             <div class="space-y-3">
-              <div class="card-hover flex gap-3 cursor-pointer group">
+              <div class="flex gap-3 cursor-pointer group">
                 <img src="https://picsum.photos/seed/l1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Startup Teknologi Jakarta Raih Pendanaan Baru</h3>
                   <p class="text-zinc-400 text-xs mt-1">2 jam lalu</p>
                 </div>
               </div>
-              <div class="card-hover flex gap-3 cursor-pointer group">
+              <div class="flex gap-3 cursor-pointer group">
                 <img src="https://picsum.photos/seed/l2/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Startup Teknologi Jakarta Raih Pendanaan Baru</h3>
@@ -151,9 +267,9 @@
           </section>
 
           <section>
-            <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">Internasional</h2>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Internasional</h2>
             <div class="space-y-3">
-              <div class="card-hover flex gap-3 cursor-pointer group">
+              <div class="flex gap-3 cursor-pointer group">
                 <img src="https://picsum.photos/seed/i1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">AI Generative Mengubah Lanskap Industri Global</h3>
@@ -164,9 +280,9 @@
           </section>
 
           <section>
-            <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Daerah</h2>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Daerah</h2>
             <div class="space-y-3">
-              <div class="card-hover flex gap-3 cursor-pointer group">
+              <div class="flex gap-3 cursor-pointer group">
                 <img src="https://picsum.photos/seed/d1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Bandung Menuju Kota Digital Terdepan di Jawa Barat</h3>
@@ -177,12 +293,12 @@
           </section>
 
           <section>
-            <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">💡 Tips & Trick</h2>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">💡 Tips & Trick</h2>
             <div class="grid grid-cols-2 gap-3">
-              <div class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden cursor-pointer group">
+              <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden cursor-pointer group">
                 <img src="https://picsum.photos/seed/t1/400/200" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
                 <div class="p-3">
-                  <span class="tag-pill text-emerald-500 text-[9px]">Laravel</span>
+                  <span class="text-emerald-500 text-[9px] font-semibold uppercase">Laravel</span>
                   <h3 class="text-zinc-900 dark:text-white font-semibold text-[11px] mt-1 leading-snug">Optimasi Query Eloquent</h3>
                 </div>
               </div>
@@ -191,19 +307,21 @@
 
           <section class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 text-center">
             <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Pengunjung Hari Ini</h2>
-            <p class="text-5xl font-black text-emerald-500" style="font-family: &quot;Sora&quot;, sans-serif">1.245</p>
+            <p class="text-5xl font-black text-emerald-500">1.245</p>
             <p class="text-zinc-400 dark:text-zinc-500 text-xs mt-1 uppercase tracking-widest">Total Visitor</p>
             <div class="mt-4 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
               <div class="h-full w-[65%] bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full"></div>
             </div>
             <p class="text-zinc-400 dark:text-zinc-600 text-xs mt-2">65% dari target harian</p>
           </section>
+
         </div>
+        <!-- end SIDEBAR -->
       </div>
     </main>
     <!-- end Content area -->
 
-    <!-- Footer area -->
+    <!-- Footer -->
     <footer class="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 mt-20">
       <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
@@ -213,7 +331,6 @@
             </a>
             <p class="text-zinc-500 text-sm mt-2 max-w-xs">Portal berita teknologi dan informasi terpercaya untuk komunitas developer Indonesia.</p>
           </div>
-
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
               <h2 class="mb-6 text-sm font-semibold text-zinc-900 uppercase dark:text-white">Follow us</h2>
@@ -224,43 +341,27 @@
             </div>
           </div>
         </div>
-
         <hr class="my-6 border-zinc-200 dark:border-zinc-700 sm:mx-auto lg:my-8" />
-
         <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm text-zinc-500 sm:text-center dark:text-zinc-400"> © 2026 <a href="index.html" class="hover:underline hover:text-emerald-500">MonXinfo™</a>. Create With 💗. </span>
+          <span class="text-sm text-zinc-500 sm:text-center dark:text-zinc-400">© 2026 <a href="index.html" class="hover:underline hover:text-emerald-500">MonXinfo™</a>. Create With 💗.</span>
           <div class="flex mt-4 sm:justify-center sm:mt-0 gap-4">
             <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 8 19">
-                <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
-              </svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 8 19"><path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd"/></svg>
             </a>
             <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 17">
-                <path
-                  fill-rule="evenodd"
-                  d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 17"><path fill-rule="evenodd" d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z" clip-rule="evenodd"/></svg>
             </a>
             <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
-                  clip-rule="evenodd"
-                />
-              </svg>
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z" clip-rule="evenodd"/></svg>
             </a>
           </div>
         </div>
       </div>
     </footer>
-    <!-- end Footer area -->
+    <!-- end Footer -->
 
-    <!-- Script JS -->
+    <!-- Scripts JS-->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="../../../js/script.js"></script>
   </body>
 </html>
