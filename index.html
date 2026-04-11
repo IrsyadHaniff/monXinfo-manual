@@ -80,16 +80,18 @@
         </div>
       </div>
 
+      <!-- Navbar filter -->
       <div
         class="bg-zinc-900 border-t border-zinc-800"
         x-data="{
-             activeFilter: 'Terkini',
-             categories: ['Terkini', 'Programming', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Tugas'],
-             setFilter(cat) {
-               this.activeFilter = cat;
-               $dispatch('filter-changed', cat);
-             }
-           }"
+    activeFilter: new URLSearchParams(window.location.search).get('category') || 'Terkini',
+    categories: ['Terkini', 'Programming', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Tugas'],
+    setFilter(cat) {
+      this.activeFilter = cat;
+      $dispatch('filter-changed', cat);
+    }
+  }"
+        x-init="$dispatch('filter-changed', activeFilter)"
       >
         <div class="max-w-7xl mx-auto px-4">
           <div class="flex items-center gap-2 py-2 overflow-x-auto scrollbar-hide whitespace-nowrap">
@@ -97,8 +99,8 @@
               <button
                 @click="setFilter(cat)"
                 :class="activeFilter === cat
-                  ? 'bg-emerald-500 text-zinc-950 font-bold'
-                  : 'text-zinc-400 hover:text-white hover:bg-zinc-800'"
+            ? 'bg-emerald-500 text-zinc-950 font-bold'
+            : 'text-zinc-400 hover:text-white hover:bg-zinc-800'"
                 class="px-3 py-1 text-xs rounded-full transition-all"
                 x-text="cat"
               ></button>
@@ -375,7 +377,9 @@
             </div>
 
             <!-- Pesan kosong -->
-            <div x-show="activeFilter === 'Laravel' || activeFilter === 'Network Security' || activeFilter === 'Tugas'" x-transition class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">Tidak ada artikel di kategori ini untuk section Terkini.</div>
+            <div x-show="activeFilter === 'Laravel' || activeFilter === 'Network Security' || activeFilter === 'Tugas'" x-transition class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">
+              Tidak ada artikel di kategori ini untuk section Terkini.
+            </div>
           </section>
 
           <!-- ===== SECTION: BERITA LAINNYA ===== -->
