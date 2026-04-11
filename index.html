@@ -91,7 +91,7 @@
       $dispatch('filter-changed', cat);
     }
   }"
-        x-init="$dispatch('filter-changed', activeFilter)"
+        x-init="$nextTick(() => $dispatch('filter-changed', activeFilter))"
       >
         <div class="max-w-7xl mx-auto px-4">
           <div class="flex items-center gap-2 py-2 overflow-x-auto scrollbar-hide whitespace-nowrap">
