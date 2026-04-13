@@ -133,6 +133,14 @@
               <span class="text-zinc-500 text-xs">Sabtu, 11 April 2026</span>
               <span class="text-zinc-700 text-xs">·</span>
               <span class="text-zinc-500 text-xs">1 hari lalu</span>
+
+              <span class="text-zinc-500 text-xs flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <span id="article-view-count">...</span>
+              </span>
             </div>
 
             <!-- Title -->
@@ -305,14 +313,23 @@
             </div>
           </section>
 
+          <!-- Pengunjung -->
           <section class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 text-center">
-            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Pengunjung Hari Ini</h2>
-            <p class="text-5xl font-black text-emerald-500">1.245</p>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Pengunjung</h2>
+
+            <!-- ID JS -->
+            <p id="visitor-count" class="text-5xl font-black text-emerald-500" style="font-family: &quot;Sora&quot;, sans-serif">...</p>
             <p class="text-zinc-400 dark:text-zinc-500 text-xs mt-1 uppercase tracking-widest">Total Pengunjung</p>
+
             <div class="mt-4 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-              <div class="h-full w-[65%] bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full"></div>
+              <div id="visitor-bar" class="h-full bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full transition-all duration-500" style="width: 0%"></div>
             </div>
-            <!-- <p class="text-zinc-400 dark:text-zinc-600 text-xs mt-2"></p> -->
+
+            <!-- live -->
+            <div class="flex items-center justify-center gap-1.5 mt-3">
+              <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              <span class="text-zinc-400 text-xs">Live</span>
+            </div>
           </section>
 
         </div>
@@ -363,5 +380,8 @@
     <!-- Scripts JS-->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="../../../js/script.js"></script>
+
+    <!-- Firebase JS -->
+    <script type="module" src="/js/firebase/config-artikel.js"></script>
   </body>
 </html>
