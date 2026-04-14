@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="id" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>monXinfo - Artikel</title>
+    <!-- CSS style -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/content.css" />
+    <!-- end CSS style -->
+
+    <!-- JS head -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    <!-- end JS head -->
+  </head>
+  <body class="overflow-x-hidden bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sora">
+    <!-- Page loader -->
+    <div id="page-loader">
+      <svg aria-hidden="true" class="w-10 h-10 text-zinc-300 dark:text-zinc-700 animate-spin fill-emerald-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+          fill="currentColor"
+        />
+        <path
+          d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+          fill="currentFill"
+        />
+      </svg>
+    </div>
+    <!-- end Page loader -->
+
+    <!-- Navbar -->
+    <nav x-data="{ open: false }" class="w-full font-sora bg-zinc-950 border-b border-zinc-800 sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-4 w-1/4">
+            <a href="/index.html" class="text-emerald-400 text-xl font-black tracking-tight">mon<span class="text-white">X</span>info</a>
+            <button id="theme-toggle" class="text-zinc-400 hover:text-white transition-colors">
+              <svg id="icon-sun" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 5V3m0 18v-2M7.05 7.05 5.636 5.636m12.728 12.728L16.95 16.95M5 12H3m18 0h-2M7.05 16.95l-1.414 1.414M18.364 5.636 16.95 7.05M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+                />
+              </svg>
+              <svg id="icon-moon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 0 1-.5-17.986V3c-.354.966-.5 1.911-.5 3a9 9 0 0 0 9 9c.239 0 .254.018.488 0A9.004 9.004 0 0 1 12 21Z" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="hidden md:flex flex-1 justify-center">
+            <ul class="flex items-center gap-2">
+              <li><a href="index.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Home</a></li>
+              <li><a href="about.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">About</a></li>
+              <li><a href="disclaimer.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Disclaimer</a></li>
+              <li><a href="contact.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="flex justify-end w-1/4">
+            <button class="md:hidden text-zinc-400" @click="open = !open">
+              <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+              <svg x-show="open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <button class="hidden md:block text-zinc-400 hover:text-white">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category bar -->
+      <div class="bg-zinc-900 border-t border-zinc-800" x-data="{ categories: ['Terkini', 'Artificial Intelligence', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Internet Of Think', 'Pkm'] }">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex items-center gap-2 py-2 overflow-x-auto scrollbar-hide whitespace-nowrap">
+            <template x-for="cat in categories" :key="cat">
+              <a :href="`/index.html?category=${encodeURIComponent(cat)}`" class="px-3 py-1 text-xs rounded-full transition-all text-zinc-400 hover:text-white hover:bg-zinc-800" x-text="cat"></a>
+            </template>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div x-show="open" class="md:hidden bg-zinc-950 border-t border-zinc-800 px-4 py-4 space-y-1">
+        <a href="index.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Home</a>
+        <a href="about.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">About</a>
+        <a href="disclaimer.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Disclaimer</a>
+        <a href="contact.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Contact</a>
+      </div>
+    </nav>
+    <!-- end Navbar -->
+
+    <!-- Breadcrumb -->
+    <div class="bg-zinc-900 border-b border-zinc-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex items-center gap-1.5 py-3 text-xs text-zinc-500 overflow-x-auto scrollbar-hide whitespace-nowrap" aria-label="Breadcrumb">
+          <a href="/index.html" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+          </a>
+          <svg class="w-3 h-3 text-zinc-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <a href="/index.html?category=Internet Of Think" class="hover:text-emerald-400 transition-colors">Internet Of Think</a>
+          <svg class="w-3 h-3 text-zinc-700 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <span class="text-zinc-300 truncate max-w-xs">Mengenal IOT Ketika Benda Mati Jadi Hidup dan Terhubung</span>
+        </nav>
+      </div>
+    </div>
+    <!-- end Breadcrumb -->
+
+    <!-- Content area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <!-- ARTICLE -->
+        <div class="lg:col-span-3 space-y-0">
+          <article>
+            <!-- Meta -->
+            <div class="flex items-center gap-3 flex-wrap mb-5">
+              <span class="bg-emerald-950 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Internet Of Think</span>
+              <span class="text-zinc-500 text-xs">Sabtu, 14 April 2026</span>
+              <span class="text-zinc-700 text-xs">·</span>
+              <!-- <span class="text-zinc-500 text-xs">1 hari lalu</span> -->
+
+              <span class="text-zinc-500 text-xs flex items-center gap-1">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <span id="article-view-count">...</span>
+              </span>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-2xl sm:text-3xl font-black leading-tight text-zinc-900 dark:text-zinc-100 mb-3">Internet of Things Ketika Benda Mati Jadi Hidup dan Terhubung</h1>
+            <p class="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-5">Mengenal Internet of Things, Ketika Benda Mati Jadi Hidup dan Terhubung</p>
+
+            <!-- Author -->
+            <div class="flex items-center gap-3 py-4 border-t border-b border-zinc-200 dark:border-zinc-800 mb-6">
+              <div class="w-9 h-9 rounded-full bg-emerald-950 flex items-center justify-center text-emerald-400 text-xs font-bold flex-shrink-0">IR</div>
+              <div>
+                <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Irsyad Haniff</p>
+                <p class="text-xs text-zinc-400">Editor · monXinfo</p>
+              </div>
+              <!-- <button class="ml-auto text-xs border border-zinc-300 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400 px-3 py-1.5 rounded-md hover:border-emerald-500 hover:text-emerald-500 transition-all">
+                Bagikan
+              </button> -->
+            </div>
+
+            <!-- Hero Image -->
+            <img src="/images/content/img/iot/internetOfThink-masadepan140426.png" alt="Ilustrasi revolusi AI" class="w-full h-72 sm:h-96 object-cover rounded-xl mb-2" />
+            <p class="text-zinc-400 text-xs text-center italic mb-8"></p>
+
+            <!-- Body -->
+            <div class="prose text-zinc-700 dark:text-zinc-300">
+              <p>
+                Di zaman sekarang, internet bukan cuma dipakai buat chatting, scrolling media sosial, atau nonton video. Tanpa kita sadari, internet sudah mulai “menghidupkan” benda-benda di sekitar kita. Mulai dari lampu, kulkas,
+                kendaraan, hingga alat kesehatan semuanya bisa saling terhubung dan berkomunikasi.
+              </p>
+              <p>Secara umum, Internet of Things adalah sebuah teknologi canggih yang merujuk pada banyaknya device dan sistem di seluruh dunia yang saling terhubung menggunakan internet dan dapat saling berbagi data.</p>
+              <p>Selain itu, IoT juga dijelaskan sebagai konsep yang bertujuan untuk memperluas manfaat dari sebuah konektivitas internet yang tersambung secara terus-menerus.</p>
+
+              <p>Konsep inilah yang dikenal dengan <strong>Internet of Things (IoT)</strong>.</p>
+
+              <!-- Blockquote -->
+              <blockquote class="border-l-4 border-emerald-500 bg-zinc-100 dark:bg-zinc-900 rounded-r-lg px-5 py-4 my-6">
+                <p class="italic text-zinc-500 dark:text-zinc-400 text-base leading-relaxed mb-2">
+                  “Internet of Things atau dikenal juga dengan singkatan IoT, merupakan sebuah konsep yang bertujuan untuk memperluas manfaat dari konektivitas internet yang tersambung secara terus-menerus.”
+                </p>
+              </blockquote>
+
+              <p>Dengan IoT, benda mati seolah punya “kehidupan” karena bisa mengirim dan menerima data, bahkan merespons kondisi tertentu secara otomatis.</p>
+              <h2 class="text-zinc-900 dark:text-zinc-100">Dari Machine to Machine (M2M)</h2>
+              <p>
+                Sebelum IoT berkembang pesat, teknologi yang lebih dulu ada adalah Machine to Machine (M2M). Teknologi ini memungkinkan mesin untuk saling berkomunikasi tanpa campur tangan manusia. IoT memiliki hubungan erat dengan M2M, di
+                mana perangkat yang memiliki kemampuan komunikasi ini disebut sebagai smart devices atau perangkat cerdas
+              </p>
+              <p>M2M (Machine to Machine) dan IoT (Internet of Things) merupakan solusi yang dibangun untuk digitalisasi proses kerja dengan tujuan efisiensi dan efektivitas sumber daya.</p>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Sejarah Singkat IoT</h2>
+
+              <!-- Unordered list -->
+              <ul>
+                <li>Tahun 1980: Mesin vending Coca-Cola yang terhubung ke internet</li>
+                <li>Tahun 1990: Pemanggang roti yang bisa dikontrol via internet</li>
+                <li>Tahun 1994: WearCam oleh Steve Mann</li>
+                <li>Tahun 1999: Istilah IoT diperkenalkan oleh Kevin Ashton</li>
+              </ul>
+              <p>Perkembangan IoT semakin pesat karena dukungan teknologi seperti cloud computing, komunikasi embedded, dan analisis data</p>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Cara Kerja Internet of Things</h2>
+              <p>
+                IoT bekerja dengan cara menghubungkan perangkat ke internet menggunakan alamat IP agar dapat dimonitor dan dikontrol oleh perusahaan sehingga lebih banyak informasi yang dapat dimanfaatkan dari perangkat yang saling
+                terkoneksi tersebut.
+              </p>
+
+              <!-- Blockquote -->
+              <blockquote class="border-l-4 border-emerald-500 bg-zinc-100 dark:bg-zinc-900 rounded-r-lg px-5 py-4 my-6">
+                <p class="italic text-zinc-500 dark:text-zinc-400 text-base leading-relaxed mb-2">“Setiap benda yang ingin terhubung dengan internet harus memiliki alamat Internet Protocol (IP) sebagai identitas dalam jaringan.”</p>
+                <cite class="text-xs text-zinc-400 not-italic"><a target="a_blank" href="https://ojs.unida.info/index.php/karimahtauhid/article/view/7633/3570">- IOT Jurnal</a></cite>
+              </blockquote>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Perbedaan M2M dan IoT</h2>
+              <p>Internet of Things (IOT) merupakan hubungan antara beberapa mesin, perangkat dan peralatan yang terhubung ke internet melalui beberapa jaringan.</p>
+              <p>
+                <strong>Sedangkan</strong>, machine to machine (M2M) adalah teknologi yang menghubungkan mesin, perangkat dan peralatan bersama-sama secara nirkabel melalui berbagai saluran komunikasi, termasuk IP dan SMS, untuk memberikan
+                layanan kepada pengguna dengan sedikit campur tangan yang terbatas.
+              </p>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Komponen Penting IoT</h2>
+              <p>IoT terdiri dari beberapa komponen utama:</p>
+              <ol>
+                <li>Sensor</li>
+                <li>Perangkat (device)</li>
+                <li>Jaringan internet</li>
+                <li>Sistem pengolahan data</li>
+              </ol>
+              <p>Sensor berperan penting karena memungkinkan perangkat untuk mengumpulkan informasi dari lingkungan sekitar</p>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Prinsip Desain IoT</h2>
+              <p>Teknologi informasi dan komunikasi telah menyediakan komunikasi di mana pun dan kapan pun. Dimensi baru yang diperkenalkan oleh IoT adalah komunikasi apa pun (any THING communication)</p>
+              <img src="/images/content/img/iot/desainIot140426.png" alt="desainIot" class="w-full h-72 sm:h-96 rounded-xl mb-2" />
+              <ul>
+                <li><strong>Any TIME Connection (Koneksi Kapan Saja)</strong></li>
+                <p>Konektivitas tidak lagi dibatasi waktu. Perangkat IoT dirancang untuk terhubung dan bekerja terus-menerus selama 24 jam</p>
+                <li><strong>Any PLACE Connection (Koneksi di Mana Saja)</strong></li>
+                <p>Dengan IoT, perangkat tetap terhubung di dalam ruangan jauh dari komputer (Indoor), atau di luar ruangan (Outdoor)</p>
+                <li><strong>Any THING Connection (Koneksi Benda Apa Saja)</strong></li>
+                <p>
+                  Ini inti revolusi IoT. Dulu jaringan hanya "Antar Komputer" (Between Computers). Kini, koneksi meluas ke benda-benda. Termasuk interaksi antara Manusia ke Benda (Human to Thing) menggunakan alat, hingga yang paling kerenn:
+                  Benda berkomunikasi dengan Benda (Thing to Thing) secara otomatis tanpa perlu dikendalikan langsung oleh manusia.
+                </p>
+              </ul>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Layer dalam IoT</h2>
+              <img src="/images/content/img/iot/layer140426.png" alt="layeriot" class="w-full h-72 sm:h-96 rounded-xl mb-2" />
+              <p>Arsitektur Referensi IoT menurut standar ITU-T (International Telecommunication Union):</p>
+              <ul>
+                <li><strong>Device Layer (Lapisan Perangkat):</strong> Lapisan paling bawah yang berhubungan langsung dengan perangkat keras fisik.</li>
+                <li><strong>Network Layer (Lapisan Jaringan):</strong> Bertanggung jawab untuk pengiriman data secara efisien dan aman.</li>
+                <li><strong>Network Layer (Lapisan Jaringan):</strong> Lapisan perantara yang menyediakan fungsi-fungsi umum agar aplikasi tidak perlu dibangun dari nol.</li>
+                <li><strong>Application Layer (Lapisan Aplikasi):</strong> Lapisan teratas. Di sinilah IoT Applications berada</li>
+              </ul>
+
+              <h2 class="text-zinc-900 dark:text-zinc-100">Penerapan IoT dalam Kehidupan</h2>
+              <img src="/images/content/img/iot/manfaatiot140426.png" alt="manfaatIoT" class="w-full h-72 sm:h-96 rounded-xl mb-2" />
+              <p>IoT sudah banyak digunakan dalam kehidupan sehari-hari, di antaranya:</p>
+
+              <ol>
+                <li><strong>Smart Home</strong></li>
+                <p>Perangkat rumah seperti lampu, AC, dan pintu dapat dikontrol dari jarak jauh melalui internet.</p>
+                <li><strong>Transportasi</strong></li>
+                <p>Dijaman sekarang sudah banyak mobil-mobil yang menggunakan listrik, dan pastinya sudah banyak yang menggunakan dashboard android yang bisa dipasang maps,music dll.</p>
+                <li><strong>Smart City</strong></li>
+                <p>Iot digunakan dalam CCTV lalu lintas, Deteksi tingkat kedalaman air, Deteksi kecepatan kendaraan, Tempat sampah otomatis.</p>
+              </ol>
+
+              <hr class="border-zinc-200 dark:border-zinc-800 my-8" />
+              <p>Refrensi :</p>
+              <p>
+                <a target="_blank" href="https://ojs.unida.info/index.php/karimahtauhid/article/view/7633/3570">https://ojs.unida.info/index.php/karimahtauhid/article/view/7633/3570</a> <br />
+                <a target="_blank" href="https://journal.arteii.or.id/index.php/Uranus/article/view/667/922">https://journal.arteii.or.id/index.php/Uranus/article/view/667/922</a> <br />
+                slide materi Internet Of Think, pertemuan 1-3
+              </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mt-8">
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all"
+                >#InternetOfThink</span
+              >
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all"
+                >#iot</span
+              >
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all"
+                >#Prinsipiot</span
+              >
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all"
+                >#iotformasyarakat</span
+              >
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all"
+                >#Ubsi</span
+              >
+              <span class="bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-500 text-xs px-3 py-1 rounded-full hover:border-emerald-500 hover:text-emerald-500 cursor-pointer transition-all"
+                >#Indonesia</span
+              >
+            </div>
+          </article>
+        </div>
+        <!-- end ARTICLE -->
+
+        <!-- SIDEBAR -->
+        <div class="lg:col-span-1 space-y-8">
+          <section class="bg-white dark:bg-zinc-900 border border-zinc-400 dark:border-zinc-800 rounded-xl p-5">
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Ikuti Kami</h2>
+            <div class="flex flex-col gap-2">
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+                <span class="text-orange-500 text-sm font-semibold">Instagram</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+                <span class="text-sky-500 text-sm font-semibold">Twitter / X</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+                <span class="text-red-500 text-sm font-semibold">YouTube Channel</span>
+              </a>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Lokal</h2>
+            <div class="space-y-3">
+              <div class="flex gap-3 cursor-pointer group">
+                <img src="https://picsum.photos/seed/l1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Startup Teknologi Jakarta Raih Pendanaan Baru</h3>
+                  <p class="text-zinc-400 text-xs mt-1">2 jam lalu</p>
+                </div>
+              </div>
+              <div class="flex gap-3 cursor-pointer group">
+                <img src="https://picsum.photos/seed/l2/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Startup Teknologi Jakarta Raih Pendanaan Baru</h3>
+                  <p class="text-zinc-400 text-xs mt-1">2 jam lalu</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Internasional</h2>
+            <div class="space-y-3">
+              <div class="flex gap-3 cursor-pointer group">
+                <img src="https://picsum.photos/seed/i1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">AI Generative Mengubah Lanskap Industri Global</h3>
+                  <p class="text-zinc-400 text-xs mt-1">5 jam lalu</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Daerah</h2>
+            <div class="space-y-3">
+              <div class="flex gap-3 cursor-pointer group">
+                <img src="https://picsum.photos/seed/d1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Bandung Menuju Kota Digital Terdepan di Jawa Barat</h3>
+                  <p class="text-zinc-400 text-xs mt-1">8 jam lalu</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">💡 Tips & Trick</h2>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden cursor-pointer group">
+                <img src="https://picsum.photos/seed/t1/400/200" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
+                <div class="p-3">
+                  <span class="text-emerald-500 text-[9px] font-semibold uppercase">Laravel</span>
+                  <h3 class="text-zinc-900 dark:text-white font-semibold text-[11px] mt-1 leading-snug">Optimasi Query Eloquent</h3>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pengunjung -->
+          <section class="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 text-center">
+            <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Pengunjung</h2>
+
+            <!-- ID JS -->
+            <p id="visitor-count" class="text-5xl font-black text-emerald-500" style="font-family: &quot;Sora&quot;, sans-serif">...</p>
+            <p class="text-zinc-400 dark:text-zinc-500 text-xs mt-1 uppercase tracking-widest">Total Pengunjung</p>
+
+            <div class="mt-4 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
+              <div id="visitor-bar" class="h-full bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+
+            <!-- live -->
+            <div class="flex items-center justify-center gap-1.5 mt-3">
+              <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+              <span class="text-zinc-400 text-xs">Live</span>
+            </div>
+          </section>
+        </div>
+        <!-- end SIDEBAR -->
+      </div>
+    </main>
+    <!-- end Content area -->
+
+    <!-- Footer -->
+    <footer class="bg-zinc-50 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 mt-20">
+      <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+            <a href="index.html" class="flex items-center gap-2">
+              <span class="text-emerald-400 text-2xl font-black tracking-tight">mon<span class="text-zinc-900 dark:text-white">X</span>info</span>
+            </a>
+            <p class="text-zinc-500 text-sm mt-2 max-w-xs">Portal berita teknologi dan informasi sederhana.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div>
+              <h2 class="mb-6 text-sm font-semibold text-zinc-900 uppercase dark:text-white">Follow us</h2>
+              <ul class="text-zinc-500 dark:text-zinc-400 font-medium">
+                <li class="mb-4"><a href="#" class="hover:underline hover:text-emerald-500 transition-colors">Github</a></li>
+                <li><a href="#" class="hover:underline hover:text-emerald-500 transition-colors">Discord</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <hr class="my-6 border-zinc-200 dark:border-zinc-700 sm:mx-auto lg:my-8" />
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-zinc-500 sm:text-center dark:text-zinc-400">© 2026 <a href="index.html" class="hover:underline hover:text-emerald-500">MonXinfo™</a>. Create With 💗.</span>
+          <div class="flex mt-4 sm:justify-center sm:mt-0 gap-4">
+            <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 8 19">
+                <path fill-rule="evenodd" d="M6.135 3H8V0H6.135a4.147 4.147 0 0 0-4.142 4.142V6H0v3h2v9.938h3V9h2.021l.592-3H5V3.591A.6.6 0 0 1 5.592 3h.543Z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 17">
+                <path
+                  fill-rule="evenodd"
+                  d="M20 1.892a8.178 8.178 0 0 1-2.355.635 4.074 4.074 0 0 0 1.8-2.235 8.344 8.344 0 0 1-2.605.98A4.13 4.13 0 0 0 13.85 0a4.068 4.068 0 0 0-4.1 4.038 4 4 0 0 0 .105.919A11.705 11.705 0 0 1 1.4.734a4.006 4.006 0 0 0 1.268 5.392 4.165 4.165 0 0 1-1.859-.5v.05A4.057 4.057 0 0 0 4.1 9.635a4.19 4.19 0 0 1-1.856.07 4.108 4.108 0 0 0 3.831 2.807A8.36 8.36 0 0 1 0 14.184 11.732 11.732 0 0 0 6.291 16 11.502 11.502 0 0 0 17.964 4.5c0-.177 0-.35-.012-.523A8.143 8.143 0 0 0 20 1.892Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+            <a href="#" class="text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 .333A9.911 9.911 0 0 0 6.866 19.65c.5.092.678-.215.678-.477 0-.237-.01-1.017-.014-1.845-2.757.6-3.338-1.169-3.338-1.169a2.627 2.627 0 0 0-1.1-1.451c-.9-.615.07-.6.07-.6a2.084 2.084 0 0 1 1.518 1.021 2.11 2.11 0 0 0 2.884.823c.044-.503.268-.973.63-1.325-2.2-.25-4.516-1.1-4.516-4.9A3.832 3.832 0 0 1 4.7 7.068a3.56 3.56 0 0 1 .095-2.623s.832-.266 2.726 1.016a9.409 9.409 0 0 1 4.962 0c1.89-1.282 2.717-1.016 2.717-1.016.366.83.402 1.768.1 2.623a3.827 3.827 0 0 1 1.02 2.659c0 3.807-2.319 4.644-4.525 4.889a2.366 2.366 0 0 1 .673 1.834c0 1.326-.012 2.394-.012 2.72 0 .263.18.572.681.475A9.911 9.911 0 0 0 10 .333Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- end Footer -->
+
+    <!-- Scripts JS-->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="/js/script.js"></script>
+
+    <!-- Firebase JS -->
+    <script type="module" src="/js/firebase/config-artikel.js"></script>
+  </body>
+</html>

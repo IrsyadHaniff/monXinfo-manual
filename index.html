@@ -192,6 +192,28 @@
               </a>
             </div>
 
+            <!-- Featured card — kategori: Internet Of Think -->
+            <div
+              x-show="activeFilter === 'Internet Of Think'"
+              x-transition:enter="transition ease-out duration-300"
+              x-transition:enter-start="opacity-0 translate-y-2"
+              x-transition:enter-end="opacity-100 translate-y-0"
+              x-transition:leave="transition ease-in duration-150"
+              x-transition:leave-start="opacity-100"
+              x-transition:leave-end="opacity-0"
+            >
+              <a href="/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html">
+                <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
+                  <img src="/images/content/img/iot/internetOfThink-masadepan140426.png" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Internet Of Think</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Mengenal IOT Ketika Benda Mati Jadi Hidup dan Terhubung</h3>
+                    <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
             <!-- Grid card kecil — 2 kolom -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <!-- Card: Terkini-->
@@ -222,9 +244,11 @@
                 x-transition:leave-end="opacity-0"
                 class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
               >
-                <img src="https://picsum.photos/seed/js/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
-                <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
-                <h4 class="font-bold text-sm mt-1">Fitur Baru JavaScript ES2025 yang Harus Diketahui</h4>
+                <a href="/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html">
+                  <img src="/images/content/img/iot/internetOfThink-masadepan140426.png" class="w-full h-40 object-cover rounded-lg mb-3" />
+                  <span class="tag-pill text-emerald-500 text-[10px]">Internet Of Think</span>
+                  <h4 class="font-bold text-sm mt-1">Mengenal IOT Ketika Benda Mati Jadi Hidup dan Terhubung</h4>
+                </a>
               </div>
             </div>
 
@@ -278,11 +302,7 @@
             </div>
 
             <!-- Pesan kosong -->
-            <div
-              x-show="activeFilter === 'Laravel' || activeFilter === 'Network Security' || activeFilter === 'JavaScript' || activeFilter === 'HTML & CSS' || activeFilter === 'Internet Of Think' || activeFilter === 'Pkm'"
-              x-transition
-              class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm"
-            >
+            <div x-show="activeFilter === 'Laravel' || activeFilter === 'Network Security' || activeFilter === 'JavaScript' || activeFilter === 'HTML & CSS' " x-transition class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">
               Artikel belum tersedia.
             </div>
           </section>
