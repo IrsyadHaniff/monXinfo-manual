@@ -17,6 +17,8 @@ const db = getDatabase(app);
 
 const totalRef = ref(db, "visitors/total");
 
+const today = new Date().toISOString().split("T")[0];
+
 // Cek apakah sudah visit hari ini
 function sudahVisitHariIni() {
   const data = localStorage.getItem("visit_data");
@@ -27,7 +29,6 @@ function sudahVisitHariIni() {
 }
 
 function tandaiSudahVisit() {
-  const today = new Date().toISOString().split("T")[0];
   localStorage.setItem("visit_data", JSON.stringify({ date: today }));
 }
 
@@ -35,7 +36,7 @@ function tandaiSudahVisit() {
 if (!sudahVisitHariIni()) {
   runTransaction(totalRef, (current) => (current || 0) + 1)
     .then(() => {
-      localStorage.setItem("visit_data", JSON.stringify({ date: today }));
+      tandaiSudahVisit();
     })
     .catch((err) => console.error("Gagal update visitor:", err));
 }
