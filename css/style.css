@@ -1,75 +1,112 @@
-body { font-family: 'DM Sans', sans-serif; }
-h1, h2, h3, h4 { font-family: 'Sora', sans-serif; }
+body {
+  font-family: "DM Sans", sans-serif;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Sora", sans-serif;
+}
 
 /* Transisi Dark Mode */
 html {
-    transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 /* Transisi halus untuk navigasi */
 nav a {
-    transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 /* Page Loader */
 #page-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    transition: opacity 0.5s ease, visibility 0.5s;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s;
 }
 
 /* Loader di Dark Mode */
 .dark #page-loader {
-    background-color: #09090b;
+  background-color: #09090b;
 }
 
 /* menyembunyikan loader */
 #page-loader.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.card-hover { 
-    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+.card-hover {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.card-hover:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2); 
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
 }
 
 .tag-pill {
-    font-family: 'Sora', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  font-family: "Sora", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .section-title::after {
-    content: '';
-    display: block;
-    width: 1.5rem;
-    height: 3px;
-    background: #10b981;
-    margin-top: 4px;
-    border-radius: 99px;
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 3px;
+  background: #10b981;
+  margin-top: 4px;
+  border-radius: 99px;
 }
 
 .featured-overlay {
-    background: linear-gradient(to top, rgba(9, 9, 11, 0.9) 10%, rgba(9, 9, 11, 0) 100%);
+  background: linear-gradient(to top, rgba(9, 9, 11, 0.9) 10%, rgba(9, 9, 11, 0) 100%);
 }
 
 /* Sembunyikan Scrollbar */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none; 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.to-top {
+  background: #34d399;
+  position: fixed;
+  bottom: 16px;
+  right: 32px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #1f1f1f;
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.to-top.active {
+  bottom: 32px;
+  pointer-events: auto;
+  opacity: 1;
 }
