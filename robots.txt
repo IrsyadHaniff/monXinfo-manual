@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://monxinfo.vercel.app/sitemap.xml
