@@ -1,4 +1,18 @@
+# robots.txt — monXinfo
+# https://monxinfoid.web.app/
+
+
+# Izinkan semua crawler (Googlebot, Bingbot, dll.)
 User-agent: *
 Allow: /
 
-Sitemap: https://monxinfo.vercel.app/sitemap.xml
+# Blokir folder yang tidak perlu diindex
+Disallow: /js/
+Disallow: /css/
+Disallow: /images/icon/
+
+# Izinkan gambar konten agar bisa muncul di Google Images
+Allow: /images/content/
+
+# Lokasi Sitemap
+Sitemap: https://monxinfoid.web.app/sitemap.xml

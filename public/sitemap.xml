@@ -1,27 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- ========== HALAMAN UTAMA ========== -->
+
   <url>
-    <loc>https://monxinfo.vercel.app/index.html</loc>
-    <lastmod>2026-04-20</lastmod>
+    <loc>https://monxinfoid.web.app/</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://monxinfo.vercel.app/content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html</loc>
-    <lastmod>2026-04-20</lastmod>
-    <priority>0.8</priority>
+    <loc>https://monxinfoid.web.app/tentang/about.html</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://monxinfo.vercel.app/content/berita/kegiatan/masyarakat/kesuksessan-mahasiswa-ubsi-melakukan-pkm-di-smai-al-layyinah.html</loc>
-    <lastmod>2026-04-20</lastmod>
-    <priority>0.8</priority>
+    <loc>https://monxinfoid.web.app/tentang/disclaimer.html</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 
   <url>
-    <loc>https://monxinfo.vercel.app/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html</loc>
+    <loc>https://monxinfoid.web.app/tentang/contact.html</loc>
+    <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ========== ARTIKEL ========== -->
+  <!-- Cara update: salin blok <url>...</url> di bawah, -->
+  <!-- ganti <loc>, <lastmod>, dan sesuaikan <priority>  -->
+
+  <!-- Artikel: Revolusi AI -->
+  <url>
+    <loc>https://monxinfoid.web.app/content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html</loc>
     <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artikel: PKM UBSI Al-Layyinah -->
+  <url>
+    <loc>https://monxinfoid.web.app/content/berita/kegiatan/masyarakat/kesuksessan-mahasiswa-ubsi-melakukan-pkm-di-smai-al-layyinah.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artikel: Internet of Things -->
+  <url>
+    <loc>https://monxinfoid.web.app/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 

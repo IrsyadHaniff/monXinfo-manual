@@ -2,15 +2,146 @@
 <html lang="id" class="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="LNMGKp7jKuKnysVbSN0POFN0rk8mogkykCgIzB_e8dQ" />
-    <meta name="description" content="Portal informasi teknologi, AI, IoT, dan berita terbaru di monXinfo." />
+    <meta name="description" content="Portal informasi teknologi dan berita terbaru di monXinfo." />
+    <title>monXinfo - Portal Informasi Teknologi</title>
+    <!-- Open graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://monxinfoid.web.app/" />
     <meta property="og:title" content="monXinfo" />
-    <meta property="og:description" content="info seputar teknologi." />
+    <meta property="og:description" content="Portal informasi teknologi dan berita terbaru di monXinfo." />
     <meta property="og:image" content="https://monxinfoid.web.app/images/previewpage041026.png" />
-    <title>monXinfo - Portal Informasi</title>
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="monXinfo" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <!-- end Open graph -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@monxinfo" />
+    <meta name="twitter:title" content="monXinfo - Portal Informasi Teknologi" />
+    <meta name="twitter:description" content="Berita terbaru seputar AI, IoT, JavaScript, dan Laravel." />
+    <meta name="twitter:image" content="https://monxinfoid.web.app/images/previewpage041026.png" />
+    <!-- end Twitter Card -->
+
+    <!-- 1. WebSite Schema — untuk fitur Search di Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "monXinfo",
+        "alternateName": "monXinfo - Portal Informasi Teknologi",
+        "url": "https://monxinfoid.web.app/",
+        "description": "Portal berita dan informasi seputar teknologi, Artificial Intelligence, IoT, JavaScript, Laravel, dan Internet Of Think.",
+        "inLanguage": "id-ID",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://monxinfoid.web.app/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- 2. Organization Schema — identitas portal di mata Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "monXinfo",
+        "url": "https://monxinfoid.web.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://monxinfoid.web.app/images/icon/monxinfo-icn-200426.png",
+          "width": 200,
+          "height": 200
+        },
+        "description": "Portal berita teknologi Indonesia yang membahas AI, IoT, JavaScript, Laravel, dan Internet Of Think.",
+        "foundingDate": "2026",
+        "inLanguage": "id-ID",
+        "sameAs": ["https://www.instagram.com/monxinfo", "https://twitter.com/monxinfo", "https://www.youtube.com/@monxinfo"]
+      }
+    </script>
+
+    <!-- 3. ItemList Schema — daftar artikel terbaru yang muncul di homepage -->
+    <!-- Update bagian ini setiap kali ada artikel baru               -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Artikel Terbaru monXinfo",
+        "description": "Kumpulan artikel teknologi terbaru dari monXinfo",
+        "url": "https://monxinfoid.web.app/",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://monxinfoid.web.app/content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html",
+            "name": "Revolusi AI: Apa yang Kamu Ketahui tentang Kecerdasan Buatan di Era Modern?",
+            "image": "https://monxinfoid.web.app/images/content/img/Revolusiai-dimasa-depan-110426.png"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://monxinfoid.web.app/content/berita/kegiatan/masyarakat/kesuksessan-mahasiswa-ubsi-melakukan-pkm-di-smai-al-layyinah.html",
+            "name": "Kesuksesan Mahasiswa UBSI Melakukan PKM di SMAI Al-Layyinah",
+            "image": "https://monxinfoid.web.app/images/content/img/pkm/disneyImage-PKM-AL-LAYYINAH.png"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://monxinfoid.web.app/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html",
+            "name": "Mengenal IoT: Ketika Benda Mati Jadi Hidup dan Terhubung",
+            "image": "https://monxinfoid.web.app/images/content/img/iot/internetOfThink-masadepan140426.png"
+          }
+
+          /*
+    =====================================================
+    TEMPLATE ARTIKEL BARU — salin bagian ini setiap kali
+    menambahkan artikel baru di homepage, lalu hapus
+    komentar ini dan sesuaikan position-nya.
+    =====================================================
+    ,{
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://monxinfoid.web.app/content/berita/KATEGORI/NAMA-ARTIKEL.html",
+      "name": "Judul Artikel Baru",
+      "image": "https://monxinfoid.web.app/images/content/img/NAMA-GAMBAR.png"
+    }
+    */
+        ]
+      }
+    </script>
+
+    <!-- 4. WebPage Schema — metadata halaman homepage -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "monXinfo - Portal Informasi Teknologi",
+        "url": "https://monxinfoid.web.app/",
+        "description": "Portal berita dan informasi seputar teknologi, AI, IoT, JavaScript, Laravel, dan Internet Of Think.",
+        "inLanguage": "id-ID",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "monXinfo",
+          "url": "https://monxinfoid.web.app/"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Teknologi, Artificial Intelligence, Internet of Things"
+        },
+        "dateModified": "2026-04-21"
+      }
+    </script>
+
+    <!-- mencegah duplicate content -->
+    <link rel="canonical" href="https://monxinfoid.web.app/" />
     <!-- CSS style -->
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
@@ -65,9 +196,9 @@
           <div class="hidden md:flex flex-1 justify-center">
             <ul class="flex items-center gap-2">
               <li><a href="index.html" class="px-4 py-2 text-sm text-white bg-zinc-800 rounded-md">Home</a></li>
-              <li><a href="about.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">About</a></li>
-              <li><a href="disclaimer.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Disclaimer</a></li>
-              <li><a href="contact.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Contact</a></li>
+              <li><a href="/tentang/about.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">About</a></li>
+              <li><a href="/tentang/disclaimer.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Disclaimer</a></li>
+              <li><a href="/tentang/contact.html" class="px-4 py-2 text-sm text-zinc-400 hover:text-white hover:bg-zinc-800 rounded-md transition-all">Contact</a></li>
             </ul>
           </div>
 
@@ -112,17 +243,19 @@
         </div>
       </div>
 
+      <!-- mobile -->
       <div x-show="open" class="md:hidden bg-zinc-950 border-t border-zinc-800 px-4 py-4 space-y-1">
         <a href="index.html" class="block px-4 py-2 text-white bg-zinc-800 rounded-md">Home</a>
-        <a href="about.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">About</a>
-        <a href="disclaimer.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Disclaimer</a>
-        <a href="contact.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Contact</a>
+        <a href="/tentang/about.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">About</a>
+        <a href="/tentang/disclaimer.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Disclaimer</a>
+        <a href="/tentang/contact.html" class="block px-4 py-2 text-zinc-400 hover:text-white rounded-md">Contact</a>
       </div>
     </nav>
     <!-- end Navbar area -->
 
     <!-- Content area -->
     <main x-data="{ activeFilter: 'Terkini' }" @filter-changed.window="activeFilter = $event.detail" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h1 class="sr-only">monXinfo - Portal Berita Informasi Teknologi</h1>
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div class="lg:col-span-3 space-y-10">
           <!-- ===== SECTION: TERKINI ===== -->
@@ -210,7 +343,7 @@
                   <img src="/images/content/img/iot/internetOfThink-masadepan140426.png" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
                     <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Internet Of Think</span>
-                    <h3 class="text-white text-2xl font-bold leading-tight">Mengenal IOT Ketika Benda Mati Jadi Hidup dan Terhubung</h3>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Internet of Things Ketika Benda Mati Jadi Hidup dan Terhubung</h3>
                     <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p>
                   </div>
                 </div>
@@ -250,7 +383,7 @@
                 <a href="/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html">
                   <img src="/images/content/img/iot/internetOfThink-masadepan140426.png" class="w-full h-40 object-cover rounded-lg mb-3" />
                   <span class="tag-pill text-emerald-500 text-[10px]">Internet Of Think</span>
-                  <h4 class="font-bold text-sm mt-1">Mengenal IOT Ketika Benda Mati Jadi Hidup dan Terhubung</h4>
+                  <h4 class="font-bold text-sm mt-1">Internet of Things Ketika Benda Mati Jadi Hidup dan Terhubung</h4>
                 </a>
               </div>
             </div>
@@ -258,7 +391,7 @@
             <!-- Grid card kecil — 3 kolom -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
               <!-- Card: Terkini-->
-              <div
+              <!-- <div
                 x-show="activeFilter === 'Terkini'"
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 translate-y-2"
@@ -301,7 +434,7 @@
                 <img src="https://picsum.photos/seed/js/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
                 <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
                 <h4 class="font-bold text-sm mt-1">Fitur Baru JavaScript ES2025 yang Harus Diketahui</h4>
-              </div>
+              </div> -->
             </div>
 
             <!-- Pesan kosong -->
@@ -314,10 +447,8 @@
           <section>
             <h2 class="section-title text-emerald-500 text-xl font-bold mb-6">Berita Lainnya</h2>
             <div class="space-y-4">
-              <!--
-                Card list: Node.js — kategori: Artificial Intelligence
-              -->
-              <div
+              <!-- Card list: Laravel Eloquent — kategori: Artificial intelligent -->
+              <!-- <div
                 x-show="activeFilter === 'Terkini' || activeFilter === 'Artificial Intelligence'"
                 x-transition:enter="transition ease-out duration-300"
                 x-transition:enter-start="opacity-0 translate-y-2"
@@ -333,91 +464,8 @@
                   <h3 class="font-bold text-base leading-snug">Optimasi Performa Node.js pada High Traffic</h3>
                   <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Cara mudah meningkatkan throughput server tanpa upgrade hardware berlebih...</p>
                 </div>
-              </div>
-
-              <!--
-                Card list: Laravel Eloquent — kategori: Laravel
-              -->
-              <div
-                x-show="activeFilter === 'Terkini' || activeFilter === 'Laravel'"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-2"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
-              >
-                <img src="https://picsum.photos/seed/laravel/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
-                <div>
-                  <span class="tag-pill text-emerald-500 text-[10px]">Laravel</span>
-                  <h3 class="font-bold text-base leading-snug">Optimasi Query Eloquent agar Lebih Cepat</h3>
-                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Teknik eager loading, chunking, dan caching query di Laravel untuk performa terbaik...</p>
-                </div>
-              </div>
-
-              <!--
-                Card list: Async Await — kategori: JavaScript
-              -->
-              <div
-                x-show="activeFilter === 'Terkini' || activeFilter === 'JavaScript'"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-2"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
-              >
-                <img src="https://picsum.photos/seed/async/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
-                <div>
-                  <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
-                  <h3 class="font-bold text-base leading-snug">Async/Await vs Promise: Mana yang Lebih Baik?</h3>
-                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Perbandingan mendalam cara kerja async di JavaScript modern dan kapan menggunakan masing-masing...</p>
-                </div>
-              </div>
-
-              <!--
-                Card list: CSS Animasi — kategori: HTML & CSS
-              -->
-              <div
-                x-show="activeFilter === 'Terkini' || activeFilter === 'HTML & CSS'"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-2"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
-              >
-                <img src="https://picsum.photos/seed/cssanim/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
-                <div>
-                  <span class="tag-pill text-emerald-500 text-[10px]">HTML & CSS</span>
-                  <h3 class="font-bold text-base leading-snug">Animasi CSS Modern yang Bikin Website Makin Hidup</h3>
-                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Dari keyframes sampai CSS custom properties, semua cara bikin animasi yang smooth...</p>
-                </div>
-              </div>
-
-              <!--
-                Card list: Network Security — kategori: Network Security
-              -->
-              <div
-                x-show="activeFilter === 'Terkini' || activeFilter === 'Network Security'"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-2"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="card-hover flex gap-4 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl p-3 cursor-pointer"
-              >
-                <img src="https://picsum.photos/seed/netsec/150/150" class="w-24 h-24 object-cover rounded-lg flex-shrink-0" />
-                <div>
-                  <span class="tag-pill text-emerald-500 text-[10px]">Network Security</span>
-                  <h3 class="font-bold text-base leading-snug">Mengenal OWASP Top 10 Kerentanan Web 2025</h3>
-                  <p class="text-zinc-500 text-xs mt-1 line-clamp-2">Panduan lengkap memahami celah keamanan web paling umum dan cara mengatasinya...</p>
-                </div>
-              </div>
+              </div> -->
+              <div class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">Artikel belum tersedia.</div>
             </div>
           </section>
         </div>
@@ -427,13 +475,13 @@
           <section class="bg-white dark:bg-zinc-900 border border-zinc-400 dark:border-zinc-800 rounded-xl p-5">
             <h2 class="text-emerald-500 dark:text-white font-bold text-base mb-4">Ikuti Kami</h2>
             <div class="flex flex-col gap-2">
-              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+              <a href="https://www.instagram.com/monxyzvi/" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
                 <span class="text-orange-500 text-sm font-semibold">Instagram</span>
               </a>
-              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+              <a href="https://www.instagram.com/monxyzvi/" target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
                 <span class="text-sky-500 text-sm font-semibold">Twitter / X</span>
               </a>
-              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
+              <a href="https://www.youtube.com/@IrsyadHanif." target="_blank" class="flex items-center gap-3 px-3 py-2.5 rounded-lg border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-all">
                 <span class="text-red-500 text-sm font-semibold">YouTube Channel</span>
               </a>
             </div>
@@ -441,7 +489,7 @@
 
           <section>
             <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Lokal</h2>
-            <div class="space-y-3">
+            <!-- <div class="space-y-3">
               <div class="card-hover flex gap-3 cursor-pointer group">
                 <img src="https://picsum.photos/seed/l1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
@@ -456,38 +504,41 @@
                   <p class="text-zinc-400 text-xs mt-1">2 jam lalu</p>
                 </div>
               </div>
-            </div>
+            </div> -->
+            <div class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">Artikel belum tersedia.</div>
           </section>
 
           <section>
             <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">Internasional</h2>
             <div class="space-y-3">
-              <div class="card-hover flex gap-3 cursor-pointer group">
+              <!-- <div class="card-hover flex gap-3 cursor-pointer group">
                 <img src="https://picsum.photos/seed/i1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">AI Generative Mengubah Lanskap Industri Global</h3>
                   <p class="text-zinc-400 text-xs mt-1">5 jam lalu</p>
                 </div>
-              </div>
+              </div> -->
+              <div class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">Artikel belum tersedia.</div>
             </div>
           </section>
 
           <section>
             <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">Berita Daerah</h2>
             <div class="space-y-3">
-              <div class="card-hover flex gap-3 cursor-pointer group">
+              <!-- <div class="card-hover flex gap-3 cursor-pointer group">
                 <img src="https://picsum.photos/seed/d1/100/100" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" />
                 <div>
                   <h3 class="text-zinc-700 dark:text-zinc-200 text-sm font-medium leading-snug group-hover:text-emerald-500 transition-colors">Bandung Menuju Kota Digital Terdepan di Jawa Barat</h3>
                   <p class="text-zinc-400 text-xs mt-1">8 jam lalu</p>
                 </div>
-              </div>
+              </div> -->
+              <div class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">Artikel belum tersedia.</div>
             </div>
           </section>
 
           <section>
             <h2 class="section-title text-emerald-500 dark:text-white font-bold text-base mb-4">💡 Tips & Trick</h2>
-            <div class="grid grid-cols-2 gap-3">
+            <!-- <div class="grid grid-cols-2 gap-3">
               <div class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden cursor-pointer group">
                 <img src="https://picsum.photos/seed/t1/400/200" class="w-full h-24 object-cover group-hover:scale-105 transition-transform" />
                 <div class="p-3">
@@ -495,7 +546,8 @@
                   <h3 class="text-zinc-900 dark:text-white font-semibold text-[11px] mt-1 leading-snug">Optimasi Query Eloquent</h3>
                 </div>
               </div>
-            </div>
+            </div> -->
+            <div class="text-center py-10 text-zinc-500 dark:text-zinc-600 text-sm">Tips dan trick belum tersedia.</div>
           </section>
 
           <!-- Pengunjung -->
@@ -536,9 +588,9 @@
             <div>
               <h2 class="mb-6 text-sm font-semibold text-zinc-900 uppercase dark:text-white">Follow us</h2>
               <ul class="text-zinc-500 dark:text-zinc-400 font-medium">
-                <li class="mb-1"><a href="#" class="hover:underline hover:text-emerald-500 transition-colors">Instagram</a></li>
-                <li class="mb-1"><a href="#" class="hover:underline hover:text-emerald-500 transition-colors">Twitter</a></li>
-                <li class="mb-1"><a href="#" class="hover:underline hover:text-emerald-500 transition-colors">Youtube</a></li>
+                <li class="mb-1"><a href="https://www.instagram.com/monxyzvi/" target="_blank" class="hover:underline hover:text-emerald-500 transition-colors">Instagram</a></li>
+                <li class="mb-1"><a href="https://www.instagram.com/monxyzvi/" target="_blank" class="hover:underline hover:text-emerald-500 transition-colors">Twitter</a></li>
+                <li class="mb-1"><a href="https://www.youtube.com/@IrsyadHanif." target="_blank" class="hover:underline hover:text-emerald-500 transition-colors">Youtube</a></li>
               </ul>
             </div>
           </div>
