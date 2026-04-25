@@ -226,7 +226,7 @@
         class="bg-zinc-900 border-t border-zinc-800"
         x-data="{
     activeFilter: new URLSearchParams(window.location.search).get('category') || 'Terkini',
-    categories: ['Terkini', 'Artificial Intelligence', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Internet Of Think', 'Pkm'],
+    categories: ['Terkini', 'Artificial Intelligence', 'Laravel', 'JavaScript', 'HTML & CSS', 'Network Security', 'Internet Of Think', 'Pkm', 'Lokal'],
     setFilter(cat) {
       this.activeFilter = cat;
       $dispatch('filter-changed', cat);
@@ -355,6 +355,27 @@
                   </div>
                 </div>
               </a>
+            </div>
+
+            <!-- Grid card kecil — 3 kolom - LOKAL -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+              <!-- Card: Terkini-->
+              <div
+                x-show="activeFilter === 'Lokal'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
+              >
+              <a href="/content/berita/lokal/demonstrasi/aksi-warga-kaltim-melakukan-demo-di-depan-gedung-gubernur-prov-kaltim.html">
+                <img src="/images/content/img/lokal/demo-kaltim-250626/demoKaltim-preview.jpg" class="w-full h-40 object-cover rounded-lg mb-3" />
+                <span class="tag-pill text-emerald-500 text-[10px]">Lokal</span>
+                <h4 class="font-bold text-sm mt-1">Demo di Depan Kantor Gubernur Kaltim, Massa Tuntut Transparansi Anggaran</h4>
+              </a>
+              </div>
             </div>
 
             <!-- Grid card kecil — 2 kolom -->
