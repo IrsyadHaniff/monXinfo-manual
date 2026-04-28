@@ -56,7 +56,14 @@
     <loc>https://monxinfoid.web.app/content/berita/lokal/demonstrasi/aksi-warga-kaltim-melakukan-demo-di-depan-gedung-gubernur-prov-kaltim.html</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://monxinfoid.web.app/content/berita/lokal/tabrakan/tragedi-tabrakan-kereta-di-bekasi-timur-evakuasi-berlangsung-hingga-dini-hari.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>
