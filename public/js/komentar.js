@@ -106,7 +106,7 @@ cmnToast('Komentar berhasil dikirim!');
 };
 })();
 // Anonim toggle
-const anonCheck = document.getElementById('cmn-anon');
+const anonCheck = document.getElementById('cmn-anonim');
 const nameInput = document.getElementById('cmn-inp-name');
 
 anonCheck.addEventListener('change', function () {
