@@ -112,6 +112,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/content.css" />
+    <link rel="stylesheet" href="/css/komentarstyle.css" />
     <link rel="shortcut icon" href="/images/icon/monxinfo-icn-200426.png" type="image/png" />
     <!-- end CSS style -->
 
@@ -343,6 +344,135 @@
                 >#Indonesia</span
               >
             </div>
+
+          <section id="komentar" class="mt-10">
+            <div class="cmn-wrap">
+
+              <!-- Judul -->
+              <div class="cmn-title text-emerald-500 dark:text-white">
+                <svg width="16" height="16" fill="none" stroke="#34d399" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+                Komentar
+                <span class="cmn-badge" id="cmn-count-badge">3 komentar</span>
+              </div>
+
+              <!-- Form -->
+              <div class="cmn-form">
+                <div class="cmn-form-row">
+                  <input type="text" id="cmn-inp-name"  class="cmn-input" placeholder="Nama kamu *" maxlength="40" />
+                  <label class="cmn-anonim-label">
+                    <input type="checkbox" id="cmn-anonim"class="cmn-anonim-check" /> Anonim
+                  </label>
+                </div>
+                <textarea id="cmn-inp-text" class="cmn-textarea" placeholder="Tulis komentarmu…" maxlength="500"></textarea>
+                <div class="cmn-form-footer">
+                  <span class="cmn-char"><span id="cmn-char-left">500</span> karakter tersisa</span>
+                  <button class="cmn-submit" onclick="cmnSubmit()">Kirim Komentar</button>
+                </div>
+              </div>
+
+              <!-- Daftar komentar -->
+              <div class="cmn-list" id="cmn-list">
+
+                <!-- Komentar 1 (dengan badge penulis + reply) -->
+                <div class="cmn-item">
+                  <div class="cmn-avatar cmn-av-green">RD</div>
+                  <div class="cmn-body">
+                    <div class="cmn-meta">
+                      <span class="cmn-name">Rizky Darmawan</span>
+                      <span class="cmn-author-tag">Penulis</span>
+                      <span class="cmn-time">2 jam lalu</span>
+                    </div>
+                    <p class="cmn-text">Semoga para korban segera mendapatkan penanganan yang terbaik. Terima kasih sudah meliput berita ini dengan cepat. 🙏</p>
+                    <div class="cmn-actions">
+                      <button class="cmn-btn" onclick="cmnLike(this)">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
+                        <span>12</span>
+                      </button>
+                      <button class="cmn-btn" onclick="cmnReply('Rizky Darmawan')">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/></svg>
+                        Balas
+                      </button>
+                    </div>
+                    <!-- Reply thread -->
+                    <div class="cmn-replies">
+                      <div class="cmn-item">
+                        <div class="cmn-avatar cmn-av-blue">SN</div>
+                        <div class="cmn-body">
+                          <div class="cmn-meta">
+                            <span class="cmn-name">Siti Nuraini</span>
+                            <span class="cmn-time">1 jam lalu</span>
+                          </div>
+                          <p class="cmn-text"><span class="mention">@Rizky Darmawan</span> Setuju, semoga cepat pulih semua korbannya.</p>
+                          <div class="cmn-actions">
+                            <button class="cmn-btn" onclick="cmnLike(this)">
+                              <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
+                              <span>4</span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Komentar 2 -->
+                <div class="cmn-item">
+                  <div class="cmn-avatar cmn-av-amber">AB</div>
+                  <div class="cmn-body">
+                    <div class="cmn-meta">
+                      <span class="cmn-name">Andi Budiarto</span>
+                      <span class="cmn-time">4 jam lalu</span>
+                    </div>
+                    <p class="cmn-text">Kenapa bisa sampai seperti ini? Perlintasan sebidang seharusnya sudah dipasang palang otomatis. Ini jadi pelajaran serius buat KAI dan Kemenhub.</p>
+                    <div class="cmn-actions">
+                      <button class="cmn-btn" onclick="cmnLike(this)">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
+                        <span>27</span>
+                      </button>
+                      <button class="cmn-btn" onclick="cmnReply('Andi Budiarto')">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/></svg>
+                        Balas
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Komentar 3 -->
+                <div class="cmn-item">
+                  <div class="cmn-avatar cmn-av-pink">DM</div>
+                  <div class="cmn-body">
+                    <div class="cmn-meta">
+                      <span class="cmn-name">Dewi Maharani</span>
+                      <span class="cmn-time">6 jam lalu</span>
+                    </div>
+                    <p class="cmn-text">Liputannya bagus, informatif dan tidak bikin panik. Terima kasih monXinfo sudah update info evakuasinya sampai dini hari. 👏</p>
+                    <div class="cmn-actions">
+                      <button class="cmn-btn" onclick="cmnLike(this)">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
+                        <span>19</span>
+                      </button>
+                      <button class="cmn-btn" onclick="cmnReply('Dewi Maharani')">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"/></svg>
+                        Balas
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Load more -->
+              <div class="cmn-load-wrap">
+                <button class="cmn-load-btn">Muat komentar lainnya</button>
+              </div>
+
+            </div><!-- end cmn-wrap -->
+            <!-- Toast notifikasi -->
+            <div class="cmn-toast" id="cmn-toast"></div>
+            
+          </section>
           </article>
         </div>
         <!-- end ARTICLE -->
@@ -508,6 +638,7 @@
     <!-- Scripts JS-->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="/js/script.js"></script>
+    <script src="/js/komentar.js"></script>
 
     <!--js slider-->
     <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
