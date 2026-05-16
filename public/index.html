@@ -112,6 +112,13 @@
             "url": "https://monxinfoid.web.app/content/berita/lokal/tabrakan/tragedi-tabrakan-kereta-di-bekasi-timur-evakuasi-berlangsung-hingga-dini-hari.html",
             "name": "Tragedi Tabrakan Kereta di Bekasi Timur, Evakuasi Berlangsung Hingga Dini Hari",
             "image": "https://monxinfoid.web.app/images/content/img/lokal/insiden-krl-dengan-argo-bekasi-timur-280426/insiden-krl-argo-preview.jpg"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://monxinfoid.web.app/content/berita/internetofthink/mengenal-internet-of-things-iot-arsitektur-model-penerapan-era-industri-4-0.html",
+            "name": "Mengenal Internet of Things (IoT): Arsitektur, Model, dan Penerapannya di Era Industri 4.0",
+            "image": "https://monxinfoid.web.app/images/content/img/iot/2/preview-051426.png"
           }
 
           /*
@@ -285,14 +292,14 @@
               x-transition:leave="transition ease-in duration-150"
               x-transition:leave-start="opacity-100"
               x-transition:leave-end="opacity-0"
-            >
-              <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+            > 
+              <a href="/content/berita/internetofthink/mengenal-internet-of-things-iot-arsitektur-model-dan-penerapannya-di-era-industri-4-0.html">
                 <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
-                  <img src="/images/content/img/Revolusiai-dimasa-depan-110426.png" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src="/images/content/img/iot/2/preview-051426.png" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
-                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Artificial Intelligence</span>
-                    <h3 class="text-white text-2xl font-bold leading-tight">Revolusi AI: Apa yang Kamu Ketahui tentang Kecerdasan Buatan di Era Modern?</h3>
-                    <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p>
+                    <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Internet Of Think</span>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Mengenal Internet of Things (IoT): Arsitektur, Model, dan Penerapannya di Era Industri 4.0</h3>
+                    <!-- <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p> -->
                   </div>
                 </div>
               </a>
@@ -314,7 +321,7 @@
                   <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
                     <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Artificial Intelligence</span>
                     <h3 class="text-white text-2xl font-bold leading-tight">Revolusi AI: Apa yang Kamu Ketahui tentang Kecerdasan Buatan di Era Modern?</h3>
-                    <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p>
+                    <!-- <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p> -->
                   </div>
                 </div>
               </a>
@@ -342,6 +349,7 @@
               </a>
             </div>
 
+            <!-- start grid kategori Internet Of Think -->
             <!-- Featured card — kategori: Internet Of Think -->
             <div
               x-show="activeFilter === 'Internet Of Think'"
@@ -352,17 +360,38 @@
               x-transition:leave-start="opacity-100"
               x-transition:leave-end="opacity-0"
             >
-              <a href="/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html">
+              <a href="/content/berita/internetofthink/mengenal-internet-of-things-iot-arsitektur-model-dan-penerapannya-di-era-industri-4-0.html">
                 <div class="card-hover relative rounded-2xl overflow-hidden cursor-pointer group mb-6">
-                  <img src="/images/content/img/iot/internetOfThink-masadepan140426.png" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src="/images/content/img/iot/2/preview-051426.png" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div class="featured-overlay absolute inset-0 flex flex-col justify-end p-6">
                     <span class="tag-pill bg-emerald-500 text-zinc-950 px-3 py-1 rounded-full w-fit mb-3">Internet Of Think</span>
-                    <h3 class="text-white text-2xl font-bold leading-tight">Internet of Things Ketika Benda Mati Jadi Hidup dan Terhubung</h3>
-                    <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p>
+                    <h3 class="text-white text-2xl font-bold leading-tight">Mengenal Internet of Things (IoT): Arsitektur, Model, dan Penerapannya di Era Industri 4.0</h3>
+                    <!-- <p class="text-zinc-300 text-sm mt-2">1 hari yang lalu</p> -->
                   </div>
                 </div>
               </a>
             </div>
+            <!-- Grid card kecil — 2 kolom Internet Of Think-->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div
+                x-show="activeFilter === 'Internet Of Think'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-2"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
+              >
+                <a href="/content/berita/internetofthink/internet-of-things-benda-mati-jadi-hidup.html">
+                  <img src="/images/content/img/iot/internetOfThink-masadepan140426.png" class="w-full h-40 object-cover rounded-lg mb-3" />
+                  <span class="tag-pill text-emerald-500 text-[10px]">Internet Of Think</span>
+                  <h4 class="font-bold text-sm mt-1">Internet of Things Ketika Benda Mati Jadi Hidup dan Terhubung</h4>
+                </a>
+              </div>
+            </div>
+            <!-- end grid kategori Internet Of Think -->
 
             <!-- Grid card kecil — 3 kolom - LOKAL -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
@@ -443,21 +472,6 @@
             <!-- Grid card kecil — 3 kolom -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
               <!-- Card: Terkini-->
-              <!-- <div
-                x-show="activeFilter === 'Terkini'"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-2"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
-              >
-                <img src="https://picsum.photos/seed/css/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
-                <span class="tag-pill text-emerald-500 text-[10px]">CSS Framework</span>
-                <h4 class="font-bold text-sm mt-1">Panduan Tailwind CSS v4 untuk Pemula</h4>
-              </div>
-
               <div
                 x-show="activeFilter === 'Terkini'"
                 x-transition:enter="transition ease-out duration-300"
@@ -468,25 +482,12 @@
                 x-transition:leave-end="opacity-0"
                 class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
               >
-                <img src="https://picsum.photos/seed/js/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
-                <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
-                <h4 class="font-bold text-sm mt-1">Fitur Baru JavaScript ES2025 yang Harus Diketahui</h4>
+                <a href="content/berita/teknologi/revolusi-ai-di-dunia-programming-apa-yang-perlu-kamu-tahu.html">
+                  <img src="/images/content/img/Revolusiai-dimasa-depan-110426.png" class="w-full h-40 object-cover rounded-lg mb-3" />
+                  <span class="tag-pill text-emerald-500 text-[10px]">Artificial Intelligence</span>
+                  <h4 class="font-bold text-sm mt-1">Revolusi AI: Apa yang Kamu Ketahui tentang Kecerdasan Buatan di Era Modern?</h4>
+                </a>
               </div>
-
-              <div
-                x-show="activeFilter === 'Terkini'"
-                x-transition:enter="transition ease-out duration-300"
-                x-transition:enter-start="opacity-0 translate-y-2"
-                x-transition:enter-end="opacity-100 translate-y-0"
-                x-transition:leave="transition ease-in duration-150"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="opacity-0"
-                class="card-hover bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden p-3"
-              >
-                <img src="https://picsum.photos/seed/js/400/250" class="w-full h-40 object-cover rounded-lg mb-3" />
-                <span class="tag-pill text-emerald-500 text-[10px]">JavaScript</span>
-                <h4 class="font-bold text-sm mt-1">Fitur Baru JavaScript ES2025 yang Harus Diketahui</h4>
-              </div> -->
             </div>
 
             <!-- Pesan kosong -->
