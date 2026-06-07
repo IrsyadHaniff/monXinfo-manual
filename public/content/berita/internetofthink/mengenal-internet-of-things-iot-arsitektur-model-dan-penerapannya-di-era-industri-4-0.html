@@ -165,6 +165,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;900&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/content.css" />
+    <link rel="stylesheet" href="/css/komentarstyle.css">
     <link rel="shortcut icon" href="/images/icon/monxinfo-icn-200426.png" type="image/png" />
     <!-- end CSS style -->
 
@@ -455,7 +456,7 @@
                     >Internet of Things (IoT),Sejarah,Teknologi, dan Penerapannya</a
                   >
                 </li>
-                <li class="hover:text-emerald-500" style="text-decoration: underline">slide materi Internet Of Think, pertemuan 1-3</li>
+                <li class="hover:text-emerald-500" style="text-decoration: underline">slide materi Internet Of Think, pertemuan 4-6</li>
               </ol>
 
             <!-- Tags -->
@@ -481,6 +482,62 @@
                 >#Indonesia</span
               >
             </div>
+
+            <!-- Komentar -->
+            <section id="komentar" class="mt-10">
+              <div class="cmn-wrap">
+
+                <!-- Judul -->
+                <div class="cmn-title text-emerald-500 dark:text-white">
+                  <svg width="16" height="16" fill="none" stroke="#34d399" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  Komentar
+                  <span class="cmn-badge" id="cmn-count-badge">0 komentar</span>
+                </div>
+
+                <!-- Form -->
+                <div class="cmn-form">
+                  <div class="cmn-form-row">
+                    <input type="text" id="cmn-inp-name" class="cmn-input"
+                      placeholder="Nama kamu *" maxlength="40" />
+
+                    <label class="cmn-anonim-label">
+                      <input type="checkbox" id="cmn-anonim" class="cmn-anonim-check" />
+                      Anonim
+                    </label>
+                  </div>
+
+                  <textarea id="cmn-inp-text" class="cmn-textarea"
+                    placeholder="Tulis komentarmu…" maxlength="500"></textarea>
+
+                  <div class="cmn-form-footer">
+                    <span class="cmn-char">
+                      <span id="cmn-char-left">500</span> karakter tersisa
+                    </span>
+                    <button class="cmn-submit" onclick="cmnSubmit()">Kirim Komentar</button>
+                  </div>
+                </div>
+
+                <!-- Daftar komentar - diisi otomatis dari Firebase -->
+                <div class="cmn-list" id="cmn-list">
+                  <p class="cmn-loading" id="cmn-loading"></p>
+                </div>
+
+                <!-- Load more -->
+                <div class="cmn-load-wrap" style="display: none">
+                  <button class="cmn-load-btn">Muat komentar lainnya</button>
+                </div>
+
+              </div>
+              <!-- end cmn-wrap -->
+
+              <!-- Toast notifikasi -->
+              <div class="cmn-toast" id="cmn-toast"></div>
+            </section>
+            <!-- end Komentar -->
+
           </article>
         </div>
         <!-- end ARTICLE -->
@@ -661,5 +718,6 @@
 
     <!-- Firebase JS -->
     <script type="module" src="/js/firebase/config-artikel.js"></script>
+    <script type="module" src="/js/firebase/config-komentar.js"></script>
   </body>
 </html>

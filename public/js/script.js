@@ -35,18 +35,7 @@ window.addEventListener("load", () => {
   }, 600);
 });
 
-// // Logika running title tab
-// let text = "   monXinfo - Homepage   ";
-// let i = 0;
-
-// function scrollTitle() {
-//   document.title = text.substring(i) + text.substring(0, i);
-//   i = (i + 1) % text.length;
-//   setTimeout(scrollTitle, 300);
-// }
-
-// scrollTitle();
-
+//tombol kembali ke atas
 const toTop = document.querySelector(".to-top");
 
 window.addEventListener("scroll", () => {
@@ -58,4 +47,4 @@ window.addEventListener("scroll", () => {
 })
 
 //non-aktifkan klick kanan
-document.addEventListener("contextmenu", (e) => e.preventDefault());
+// document.addEventListener("contextmenu", (e) => e.preventDefault());
