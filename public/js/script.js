@@ -47,4 +47,4 @@ window.addEventListener("scroll", () => {
 })
 
 //non-aktifkan klick kanan
-// document.addEventListener("contextmenu", (e) => e.preventDefault());
+document.addEventListener("contextmenu", (e) => e.preventDefault());
