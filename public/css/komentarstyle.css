@@ -174,7 +174,6 @@
 .cmn-name {
   font-size: 13px;
   font-weight: 600;
-  color: #f4f4f5;
 }
 .cmn-time {
   font-size: 11px;
@@ -190,9 +189,9 @@
 }
 .cmn-text {
   font-size: 13px;
-  color: #a1a1aa;
-  line-height: 1.7;
+  line-height: 1.45;
   word-break: break-word;
+  margin: 0;
 }
 .cmn-text .mention {
   color: #34d399;
@@ -200,9 +199,10 @@
 }
 .cmn-actions {
   display: flex;
-  gap: 14px;
-  margin-top: 8px;
+  gap: 5px;
+  margin-top: 3px;
 }
+
 .cmn-btn {
   background: none;
   border: none;
@@ -230,22 +230,67 @@
 
 /* Reply thread */
 .cmn-replies {
-  margin-top: 12px;
-  margin-left: 46px;
-  padding-left: 14px;
-  border-left: 2px solid #27272a;
+  margin-top: 6px;
+  margin-left: 0;
+  padding-left: 0;
+  border-left: none;
   display: flex;
   flex-direction: column;
   gap: 0;
+  position: relative;
+
+  --line-color: #27272a;
+  --line-size: 2px;
+  --avatar-center: 16px;
+  --line-width: 22px;
+  --reply-indent: 36px;
+  --first-line-top: 26px;
 }
+
 .cmn-replies .cmn-item {
   border-bottom: none;
-  padding: 0.75rem 0;
+  padding: 0.4rem 0 0.4rem var(--reply-indent);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
 }
+
+/* Garis lengkung ke avatar reply */
+.cmn-replies .cmn-item::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0;
+  width: var(--line-width);
+  height: var(--avatar-center);
+  border-left: var(--line-size) solid var(--line-color);
+  border-bottom: var(--line-size) solid var(--line-color);
+  border-bottom-left-radius: 8px;
+}
+
+/* Reply pertama: nyambung dari komentar utama */
+.cmn-replies .cmn-item:first-child::before {
+  top: calc(-1 * var(--first-line-top));
+  height: calc(var(--first-line-top) + var(--avatar-center));
+}
+
+/* Garis vertikal antar reply */
+.cmn-replies .cmn-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: var(--avatar-center);
+  bottom: -0.4rem;
+  border-left: var(--line-size) solid var(--line-color);
+}
+
 .cmn-replies .cmn-avatar {
   width: 28px;
   height: 28px;
   font-size: 10px;
+  flex-shrink: 0;
+  margin-top: -4px;
 }
 
 /* Load more */
@@ -314,13 +359,100 @@
   border-radius: 3px;
 }
 
+.cmn-loading {
+  text-align: center;
+  font-size: 13px;
+  color: #52525b;
+  padding: 1.5rem 0;
+}
+
+/* Toggle replies */
+.cmn-toggle-replies {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #18181b;
+  gap: 4px;
+}
+.dark .cmn-toggle-replies {
+  color: #34d399;
+}
+.dark .cmn-toggle-replies:hover {
+  color: #6ee7b7;
+}
+
+.cmn-toggle-replies svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s;
+}
+
+.cmn-replies-hidden {
+  display: none;
+}
+
+.cmn-replies-visible {
+  display: flex;
+  animation: cmn-fade-in 0.25s ease;
+}
+
+/* tombol balasan dan sembunyikan*/
+.cmn-bottom-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cmn-hide-btn {
+  color: #18181b;
+}
+.dark .cmn-hide-btn {
+  color: #34d399;
+}
+.dark .cmn-hide-btn:hover {
+  color: #6ee7b7;
+}
+
 @media (max-width: 480px) {
   .cmn-form-row {
     flex-direction: row;
     align-items: center;
     gap: 8px;
   }
+
+  .cmn-item {
+    gap: 8px;
+  }
+
+  .cmn-avatar {
+    width: 34px;
+    height: 34px;
+  }
+
   .cmn-replies {
-    margin-left: 20px;
+    margin-left: 0;
+    margin-top: 6px;
+
+    --line-width: 18px;
+    --reply-indent: 30px;
+    --avatar-center: 15px;
+    --first-line-top: 20px;
+  }
+
+  .cmn-replies .cmn-item {
+    gap: 7px;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    padding-left: var(--reply-indent);
+  }
+
+  .cmn-replies .cmn-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 9px;
+    margin-top: -3px;
+  }
+
+  .cmn-replies .cmn-item:not(:last-child)::after {
+    bottom: -0.35rem;
   }
 }
